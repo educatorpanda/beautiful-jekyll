@@ -21,26 +21,23 @@ The independent variable is the variable the experimenter changes or controls an
 * Introduction to Simple Linear Regression (Best fitting line)
 * Residuals and Cost Function
 * Simple Linear Regression model
-* Mathematical Derivation to find the optimum value of the weights
-* Solved Example
+* Mathematical Derivation using Least Square Method
 * Find the Coefficient of Determination (R<sup>2</sup>)
 * Coding (in python) from scratch
 * Coding (in python) using libraries
-* Fun Plotting
+* Fun Plotting [Section 1]( #heading-section-1)
 
-## 1. Introduction to Simple Linear Regression
+
+## 1. Introduction to Simple Linear Regression ##
 As you may have studied in your high school, the relationship between the two different units of Temperature, degrees Fahrenheit (F) and degrees Celsius (C) is known to be:  
-
-
-That is, if you know the temperature in degrees Celsius, you can use this equation to determine the temperature in degrees Fahrenheit **exactly**. Such a relationship is called a deterministic (or functional) relationship. In a deterministic relationship, the equation **exactly** describes the relationship between the two variables.
 
 ![\Large F= \frac{9}{5}C+32](https://latex.codecogs.com/gif.latex?F%3D%20%5Cfrac%7B9%7D%7B5%7DC&plus;32){: .mx-auto.d-block :}
 
-Hope this works
 ![Temperature](/assets/img/CelciusFahrenheit.PNG){: .mx-auto.d-block :}
-*Deterministic relationship between Fahrenheit and Celsius*{: .mx-auto.d-block :}
 
-However, in the world of data science, we never talk about the deterministic relationship. Instead, we are always interested in statistical relationships.
+That is, if you know the temperature in degrees Celsius, you can use this equation to determine the temperature in degrees Fahrenheit **exactly**. Such a relationship is called a deterministic (or functional) relationship. In a deterministic relationship, the equation **exactly** describes the relationship between the two variables.
+
+However, in the world of data science, we never talk about the deterministic relationship. Instead, we are always interested in statistical relationships. 
 
 
 
