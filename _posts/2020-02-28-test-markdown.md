@@ -18,7 +18,7 @@ Simple Linear Regression is a powerful statistical tool that is used to determin
 The independent variable is the variable the experimenter changes or controls and is assumed to have a direct effect on the dependent variable. For example: Driving speed and gas mileage — as driving speed increases, you'd expect gas mileage to decrease. So, here the driving speed is the independent variable which is controlled by the driver (experimenter) and it is assumed to have a direct effect on the dependent variable which is the gas mileage.
 
 ### In this article, we will be covering the following topics: 
-* [Introduction to Simple Linear Regression](#1.-introduction-to-simple-linear-regression)
+* [Introduction to Simple Linear Regression](#introduction-to-simple-linear-regression)
 * Residuals and Cost Function
 * Simple Linear Regression model
 * Mathematical Derivation using Least Square Method
@@ -28,7 +28,7 @@ The independent variable is the variable the experimenter changes or controls an
 * Fun Plotting 
 
 
-## 1. Introduction to Simple Linear Regression 
+## Introduction to Simple Linear Regression 
 As you may have studied in your high school, the relationship between the two different units of Temperature, degrees Fahrenheit (F) and degrees Celsius (C) is known to be:  
 
 ![\Large F= \frac{9}{5}C+32](https://latex.codecogs.com/gif.latex?F%3D%20%5Cfrac%7B9%7D%7B5%7DC&plus;32){: .mx-auto.d-block :}
