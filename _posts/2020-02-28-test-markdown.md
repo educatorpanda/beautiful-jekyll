@@ -36,6 +36,9 @@ That is, if you know the temperature in degrees Celsius, you can use this equati
 
 ![\Large F= \frac{9}{5}C+32](https://latex.codecogs.com/gif.latex?F%3D%20%5Cfrac%7B9%7D%7B5%7DC&plus;32){: .mx-auto.d-block :}
 
+![Crepe](https://github.com/educatorpanda/educatorpanda.github.io/blob/master/assets/img/CelciusFahrenheit.PNG){: .mx-auto.d-block :}
+*Deterministic relationship between Fahrenheit and Celsius*
+
 However, in the world of data science, we never talk about the deterministic relationship. Instead, we are always interested in statistical relationships.
 
 
@@ -58,7 +61,7 @@ Here's a useless table:
 
 It can also be centered!
 
-![Crepe](https://github.com/educatorpanda/educatorpanda.github.io/blob/master/assets/img/thumb.png){: .mx-auto.d-block :}
+
 
 Here's a code chunk:
 
