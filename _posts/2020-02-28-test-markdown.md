@@ -1,18 +1,48 @@
 ---
 layout: post
-title: Sample blog post
-subtitle: Each post also has a subtitle
+title: Everything you need to know about Simple Linear Regression!
+subtitle: Machine Learning Episode-1.1
 gh-repo: daattali/beautiful-jekyll
 gh-badge: [star, fork, follow]
 tags: [test]
 comments: true
 ---
 
-This is a demo post to show you how to write blog posts with markdown.  I strongly encourage you to [take 5 minutes to learn how to write in markdown](https://markdowntutorial.com/) - it'll teach you how to transform regular text into bold/italics/headings/tables/etc.
+Simple Linear Regression is a powerful statistical tool that is used to determine the relationship between two quantitative variables.
 
-**Here is some bold text**
+> "Somewhere between Simple Linear Regression and Deep Neural Networks we grow up to become a Data Scientist" 
 
-## Here is a secondary heading
+1. The first variable (also denoted as '**X**') is called the independent variable. 
+2. The second variable (also denoted as '**Y**') is called the dependent variable.
+
+The independent variable is the variable the experimenter changes or controls and is assumed to have a direct effect on the dependent variable. For example: Driving speed and gas mileage — as driving speed increases, you'd expect gas mileage to decrease. So, here the driving speed is the independent variable which is controlled by the driver (experimenter) and it is assumed to have a direct effect on the dependent variable which is the gas mileage.
+
+### In this article, we will be covering the following topics:
+* Introduction to Simple Linear Regression (Best fitting line)
+* Residuals and Cost Function
+* Simple Linear Regression model
+* Mathematical Derivation to find the optimum value of the weights
+* Solved Example
+* Find the Coefficient of Determination (R<sup>2</sup>)
+* Coding (in python) from scratch
+* Coding (in python) using libraries
+* Fun Plotting
+
+## 1. Introduction to Simple Linear Regression
+As you may have studied in your high school, the relationship between the two different units of Temperature, degrees Fahrenheit (F) and degrees Celsius (C) is known to be:  
+
+
+That is, if you know the temperature in degrees Celsius, you can use this equation to determine the temperature in degrees Fahrenheit **exactly**. Such a relationship is called a deterministic (or functional) relationship. In a deterministic relationship, the equation **exactly** describes the relationship between the two variables.
+
+![\Large F= \frac{9}{5}C+32](https://latex.codecogs.com/gif.latex?F%3D%20%5Cfrac%7B9%7D%7B5%7DC&plus;32){: .mx-auto.d-block :}
+
+However, in the world of data science, we never talk about the deterministic relationship. Instead, we are always interested in statistical relationships.
+
+
+
+
+
+
 
 Here's a useless table:
 
@@ -24,13 +54,11 @@ Here's a useless table:
 | Two | Three | One |
 
 
-How about a yummy crepe?
 
-![Crepe](https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg)
 
 It can also be centered!
 
-![Crepe](https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg){: .mx-auto.d-block :}
+![Crepe](https://github.com/educatorpanda/educatorpanda.github.io/blob/master/assets/img/thumb.png){: .mx-auto.d-block :}
 
 Here's a code chunk:
 
