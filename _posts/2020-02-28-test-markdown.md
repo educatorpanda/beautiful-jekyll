@@ -12,12 +12,12 @@ Simple Linear Regression is a powerful statistical tool that is used to determin
 
 > "Somewhere between Simple Linear Regression and Deep Neural Networks we grow up to become a Data Scientist" 
 
-1. The first variable (also denoted as '**X**') is called the independent variable. 
+1. The first variable (also denoted as '**X**') is called the independent variable. [Section 1]( #heading-section-2)
 2. The second variable (also denoted as '**Y**') is called the dependent variable.
 
 The independent variable is the variable the experimenter changes or controls and is assumed to have a direct effect on the dependent variable. For example: Driving speed and gas mileage — as driving speed increases, you'd expect gas mileage to decrease. So, here the driving speed is the independent variable which is controlled by the driver (experimenter) and it is assumed to have a direct effect on the dependent variable which is the gas mileage.
 
-### In this article, we will be covering the following topics:
+### In this article, we will be covering the following topics: ###
 * Introduction to Simple Linear Regression (Best fitting line)
 * Residuals and Cost Function
 * Simple Linear Regression model
@@ -25,7 +25,7 @@ The independent variable is the variable the experimenter changes or controls an
 * Find the Coefficient of Determination (R<sup>2</sup>)
 * Coding (in python) from scratch
 * Coding (in python) using libraries
-* Fun Plotting [Section 1]( #heading-section-1)
+* Fun Plotting 
 
 
 ## 1. Introduction to Simple Linear Regression ##
