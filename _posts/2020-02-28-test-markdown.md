@@ -38,7 +38,7 @@ That is, if you know the temperature in degrees Celsius, you can use this equati
 
 Hope this works
 ![Temperature](/assets/img/CelciusFahrenheit.PNG){: .mx-auto.d-block :}
-->*Deterministic relationship between Fahrenheit and Celsius*<-
+*Deterministic relationship between Fahrenheit and Celsius*{: .mx-auto.d-block :}
 
 However, in the world of data science, we never talk about the deterministic relationship. Instead, we are always interested in statistical relationships.
 
