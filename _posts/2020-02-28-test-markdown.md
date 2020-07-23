@@ -85,6 +85,14 @@ We donote this residual term at the i<sup>th</sup> data point as **e<sub>i</sub>
 
 ![\Large e_{i}=y_{i}-Y_{i}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20e_%7Bi%7D%3Dy_%7Bi%7D-Y_%7Bi%7D){: .mx-auto.d-block :}
 
+2. **Cost Function**
+
+**Cost function** is a Machine Learning Terminology which is simply a measure of how wrong the model is in term of its ability to estimate the relationship between **X** and **Y**. **Cost Function** quantifies the error between predicted values (**y**) and actual values (**Y**) and presents it in the form of a single real number. Thus Cost function, in layman terminology is nothing but the total prediction error. We denote this single real number by **C**. 
+
+Now you can sense a relationship between Residual and Cost function. Residual denotes the error for a single data point, whereas the Cost function denotes the error for all the given data points. Now, in order to develop a model which can accurately predict the output, we just need to minimize the Cost function (**C**). Depending on the problem, the Cost Function can be formed in many different ways. But for our case, it will be given as:
+
+![\Large C=\sum_{i=1}^{i=N}\frac{1}{2}\left ( y_{i}-Y_{i} \right )^{2}=\sum_{i=1}^{i=N}\frac{1}{2}\left ( e_{i}\right )^{2}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20C%3D%5Csum_%7Bi%3D1%7D%5E%7Bi%3DN%7D%5Cfrac%7B1%7D%7B2%7D%5Cleft%20%28%20y_%7Bi%7DY_%7Bi%7D%20%5Cright%20%29%5E%7B2%7D%3D%5Csum_%7Bi%3D1%7D%5E%7Bi%3DN%7D%5Cfrac%7B1%7D%7B2%7D%5Cleft%20%28%20e_%7Bi%7D%5Cright%20%29%5E%7B2%7D){: .mx-auto.d-block :}
+
 Here's a code chunk:
 
 ~~~
