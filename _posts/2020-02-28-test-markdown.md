@@ -25,10 +25,10 @@ The independent variable is the variable the experimenter changes or controls an
 * Find the Coefficient of Determination (R<sup>2</sup>)
 * Coding (in python) from scratch
 * Coding (in python) using libraries
-* Fun Plotting 
+* Applications and Usage 
 
 
-## Introduction to Simple Linear Regression 
+### Introduction to Simple Linear Regression 
 As you may have studied in your high school, the relationship between the two different units of Temperature, degrees Fahrenheit (F) and degrees Celsius (C) is known to be:  
 
 ![\Large F= \frac{9}{5}C+32](https://latex.codecogs.com/gif.latex?F%3D%20%5Cfrac%7B9%7D%7B5%7DC&plus;32){: .mx-auto.d-block :}
@@ -37,29 +37,37 @@ As you may have studied in your high school, the relationship between the two di
 
 That is, if you know the temperature in degrees Celsius, you can use this equation to determine the temperature in degrees Fahrenheit **exactly**. Such a relationship is called a deterministic (or functional) relationship. In a deterministic relationship, the equation **exactly** describes the relationship between the two variables.
 
-However, in the world of data science, we never talk about the deterministic relationship. Instead, we are always interested in statistical relationships. 
+However, in the world of data science, we never talk about the deterministic relationship. Instead, we are always interested in statistical relationships. So, today let us understand in detail, one of the most basic method which is used to establish the statistical relationship between two variables (an independent variable and a dependent variable) known as **Simple Linear Regression**. 
 
+**What is Simple Linear Regression?**
 
+Simple Linear Regression is a basic regression analysis where we have just two variables (an independent variable and a dependent variable) and based on the changes made to the independent variable (**X**), we try to predict the outcome of the dependent variable (**Y**). Let us understand this through a fictitious example.
 
+This table shows the investment of the company in its business over the years. Our task at hand is to predict the investment of the company in the 6<sup>th</sup> year using Simple Linear Regression model. So how will you do that?
 
+| Years | Investment (in M) |
+| :------ |:--- |
+| 0 | 2 |
+| 1 | 3 |
+| 2 | 5 |
+| 3 | 4 |
+| 4 | 6 |
 
+The very first step is to identify the independent and the dependent variables. When we analyse our data, we can clearly find that the variable **Years** is assumed to have a direct effect on the variable **Investment**. So **Years** is the independent variable (**X**) and **Investment** is the dependent variable **Y**.
 
+**NOTE:** In general, it is a good practise to visualise your data (before proceeding towards the solution) in order to get a gist of the relationship that these variables behold. So, let us plot this data on a XY graph.
 
-Here's a useless table:
+This is how the plot will look like:
 
-| Number | Next number | Previous number |
-| :------ |:--- | :--- |
-| Five | Six | Four |
-| Ten | Eleven | Nine |
-| Seven | Eight | Six |
-| Two | Three | One |
+![Data](/assets/img/datavisualization.png){: .mx-auto.d-block :}
 
+The core idea in Simple Linear Regression is to obtain a line that best fits the data. Mathematically, the equation of such a line is of the form:
 
+![\Large y=w_{0}+w_{1}X ](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20y%3Dw_%7B0%7D&plus;w_%7B1%7DX){: .mx-auto.d-block :}
 
+where **'y'** represents the predicted output for a given input **'X'**. The terms **'w<sub>0</sub>'** and **'w<sub>1</sub>'** represents the *Y-intercept* of the line (i.e. the point where the given line intersects the Y-axis) and *Slope* of the given line respectively. Let us collectively call the terms **'w<sub>0</sub>'** and **'w<sub>1</sub>'** as  the weights attached to the input (or simply **'weights'**)
 
-It can also be centered!
-
-
+In the figure given below, we find that there can be multiple lines with which we can fit the given data. But the best fit line is the one for which the total prediction error for all the data points is as small as possible, i.e. we find the optimum value of the weights such that the total error associated with our prediction is ***minimum***.
 
 Here's a code chunk:
 
