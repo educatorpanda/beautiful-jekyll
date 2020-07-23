@@ -77,11 +77,11 @@ Taking about the errors, let us understand the concept of **Residual** and Total
 
 1. **Residual**
 
-Out of the given multiple lines in the above figure, let us arbitrarily choose a line and call it as ***L*** such that ***Line L: y = w<sub>0</sub> + w<sub>1</sub>X*** becomes the regression line. So, a Residual is simply the vertical distance (denoted by the red line, in the figure below) between a data point and the regression line ***L***. Each data point has one residual. In our example, we have 5 data points, so there will be 5 residuals in total. They are positive if they are above the regression line and negative if they are below the regression line. If the regression line actually passes through the point, the residual at that point is zero.
+Out of the given multiple lines in the above figure, let us arbitrarily choose a line and call it as ***L*** such that ***Line L: y = w<sub>0</sub> + w<sub>1</sub>X*** becomes the regression line. So, a Residual is simply the vertical distance (denoted by the red line, in the figure below) between a data point and the regression line ***L***. Each data point has one residual. In our example, we have 5 data points, so there will be 5 residuals in total. They are negative if they are above the regression line and positive if they are below the regression line. If the regression line actually passes through the point, the residual at that point is zero.
 
 ![Residual](/assets/img/residual.PNG){: .mx-auto.d-block :}
 
-We donote this residual term at the i<sup>th</sup> data point as **e<sub>i</sub>**. So, for the i<sup>th</sup> data point **(X<sub>i</sub>,Y<sub>i</sub>)**, the value of the predicted output will be **y<sub>i</sub>** such that y<sub>i</sub> = w<sub>0</sub> + w<sub>1</sub>X<sub>i</sub> and the value of the residual at this data point will be given as: 
+We donote this residual term at the i<sup>th</sup> data point as **e<sub>i</sub>**. So, for the i<sup>th</sup> data point **(X<sub>i</sub>,Y<sub>i</sub>)**, the value of the predicted output will be **y<sub>i</sub>** such that ***y<sub>i</sub> = w<sub>0</sub> + w<sub>1</sub>X<sub>i</sub>*** and the value of the residual at this data point will be given as: 
 
 ![\Large e_{i}=y_{i}-Y_{i}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20e_%7Bi%7D%3Dy_%7Bi%7D-Y_%7Bi%7D){: .mx-auto.d-block :}
 
