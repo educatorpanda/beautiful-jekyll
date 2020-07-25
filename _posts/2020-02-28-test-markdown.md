@@ -59,15 +59,18 @@ The very first step is to identify the independent and the dependent variables. 
 
 This is how the plot will look like:
 
+
 ![Data](/assets/img/datavisualization.png){: .mx-auto.d-block :}
 
 The core idea in Simple Linear Regression is to obtain a line that best fits the data. Mathematically, the equation of such a line is of the form:
+
 
 ![\Large y=w_{0}+w_{1}X ](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20y%3Dw_%7B0%7D&plus;w_%7B1%7DX){: .mx-auto.d-block :}
 
 where **'y'** represents the predicted output for a given input **'X'**. The terms **'w<sub>0</sub>'** and **'w<sub>1</sub>'** represents the *Y-intercept* of the line (i.e. the point where the given line intersects the Y-axis) and *Slope* of the given line respectively. Let us collectively call the terms **'w<sub>0</sub>'** and **'w<sub>1</sub>'** as  the weights attached to the input (or simply **'weights'**)
 
 In the figure given below, we find that there can be multiple lines with which we can fit the given data. But the best fit line is the one for which the total prediction error for all the data points is as small as possible, i.e. we find the optimum value of the weights such that the total error associated with our prediction is ***minimum***.
+
 
 ![Data2](/assets/img/datavisualization2.png){: .mx-auto.d-block :}
 
@@ -79,9 +82,11 @@ Taking about the errors, let us understand the concept of **Residual** and Total
 
 Out of the given multiple lines in the above figure, let us arbitrarily choose a line and call it as ***L*** such that ***Line L: y = w<sub>0</sub> + w<sub>1</sub>X*** becomes the regression line. So, a Residual is simply the vertical distance (denoted by the red line, in the figure below) between a data point and the regression line ***L***. Each data point has one residual. In our example, we have 5 data points, so there will be 5 residuals in total. They are negative if they are above the regression line and positive if they are below the regression line. If the regression line actually passes through the point, the residual at that point is zero.
 
+
 ![Residual](/assets/img/residual.PNG){: .mx-auto.d-block :}
 
 We donote this residual term at the i<sup>th</sup> data point as **e<sub>i</sub>**. So, for the i<sup>th</sup> data point **(X<sub>i</sub>,Y<sub>i</sub>)**, the value of the predicted output will be **y<sub>i</sub>** such that ***y<sub>i</sub> = w<sub>0</sub> + w<sub>1</sub>X<sub>i</sub>*** and the value of the residual at this data point will be given as: 
+
 
 ![\Large e_{i}=y_{i}-Y_{i}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20e_%7Bi%7D%3Dy_%7Bi%7D-Y_%7Bi%7D){: .mx-auto.d-block :}
 
@@ -90,6 +95,7 @@ We donote this residual term at the i<sup>th</sup> data point as **e<sub>i</sub>
 **Cost function** in a machine learning terminology is simply a measure of how incorrect the model is in term of its ability to evaluate the relationship between **X** and **Y**. **Cost Function** quantifies the error between predicted values (**y**) and actual values (**Y**) and presents it in the form of a single real number [10]. Thus Cost function, in layman terminology is nothing but the total prediction error. We denote this single real number by **C**. 
 
 Now you can sense a relationship between Residual and Cost function. Residual denotes the error for a single data point, whereas the Cost function denotes the error for all the given data points. Now, in order to develop a model which can accurately predict the output, we just need to minimize the Cost function (**C**). Depending on the problem, the Cost Function can be formed in many different ways. But for our case, it will be given as:
+
 
 ![\Large C=\sum_{i=1}^{N}\frac{1}{2N}\left ( y_{i}-Y_{i} \right )^{2}=\sum_{i=1}^{N}\frac{e_{i}^{2}}{2N}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20C%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%5Cfrac%7B1%7D%7B2N%7D%5Cleft%20%28%20y_%7Bi%7D-Y_%7Bi%7D%20%5Cright%20%29%5E%7B2%7D%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%5Cfrac%7Be_%7Bi%7D%5E%7B2%7D%7D%7B2N%7D){: .mx-auto.d-block :}
 
@@ -101,13 +107,16 @@ Now that we are familiar with the term Residuals and Cost function (or total pre
 
 When we substitute the predicted output ***y<sub>i</sub> = w<sub>0</sub> + w<sub>1</sub>X<sub>i</sub>*** into the Cost function (**C**) we get:
 
+
 ![Data2](/assets/img/cost2.PNG){: .mx-auto.d-block :}
 
 We see that our Cost function is now a function of the variable **w<sub>0</sub>** and **w<sub>1</sub>**, i.e. **C = C(w<sub>0</sub>, w<sub>1</sub>)**. So, in order to minimise this Cost function, we find the partial derivative of **C** with respect to **w<sub>0</sub>** and **w<sub>1</sub>** and equate it to zero (as shown in the figure below). 
 
+
 ![\Large \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{0}} = 0 ;\hspace{0.3cm} \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{1}} = 0](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B0%7D%7D%20%3D%200%20%3B%5Chspace%7B0.3cm%7D%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B1%7D%7D%20%3D%200){: .mx-auto.d-block :}
 
 I will skip the derivation part and will directly provide the optimum value of the weights **w<sub>0</sub>** and **w<sub>1</sub>** (as given in the figure below)
+
 
 ![Data2](/assets/img/formulaweights.PNG){: .mx-auto.d-block :}
 
