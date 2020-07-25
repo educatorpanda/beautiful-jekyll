@@ -20,8 +20,7 @@ The independent variable is the variable the experimenter changes or controls an
 ### In this article, we will be covering the following topics: 
 * [Introduction to Simple Linear Regression](#introduction-to-simple-linear-regression)
 * [Residuals and Cost Function](#residuals-and-cost-function)
-* Simple Linear Regression model
-* Mathematical Derivation using Least Square Method
+* [Least Square Method](#least-square-method)
 * Find the Coefficient of Determination (R<sup>2</sup>)
 * Coding (in python) from scratch
 * Coding (in python) using libraries
@@ -88,11 +87,29 @@ We donote this residual term at the i<sup>th</sup> data point as **e<sub>i</sub>
 
 2. **Cost Function**
 
-**Cost function** is a Machine Learning Terminology which is simply a measure of how wrong the model is in term of its ability to estimate the relationship between **X** and **Y**. **Cost Function** quantifies the error between predicted values (**y**) and actual values (**Y**) and presents it in the form of a single real number. Thus Cost function, in layman terminology is nothing but the total prediction error. We denote this single real number by **C**. 
+**Cost function** in a machine learning terminology is simply a measure of how incorrect the model is in term of its ability to evaluate the relationship between **X** and **Y**. **Cost Function** quantifies the error between predicted values (**y**) and actual values (**Y**) and presents it in the form of a single real number [10]. Thus Cost function, in layman terminology is nothing but the total prediction error. We denote this single real number by **C**. 
 
 Now you can sense a relationship between Residual and Cost function. Residual denotes the error for a single data point, whereas the Cost function denotes the error for all the given data points. Now, in order to develop a model which can accurately predict the output, we just need to minimize the Cost function (**C**). Depending on the problem, the Cost Function can be formed in many different ways. But for our case, it will be given as:
 
-![\Large C=\sum_{i=1}^{N}\frac{1}{2}\left ( y_{i}-Y_{i} \right )^{2}=\sum_{i=1}^{N}\frac{1}{2}\left ( e_{i}\right )^{2}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20C%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%5Cfrac%7B1%7D%7B2%7D%5Cleft%20%28%20y_%7Bi%7D-Y_%7Bi%7D%20%5Cright%20%29%5E%7B2%7D%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%5Cfrac%7B1%7D%7B2%7D%5Cleft%20%28%20e_%7Bi%7D%5Cright%20%29%5E%7B2%7D){: .mx-auto.d-block :}
+![\Large C=\sum_{i=1}^{N}\frac{1}{2N}\left ( y_{i}-Y_{i} \right )^{2}=\sum_{i=1}^{N}\frac{e_{i}^{2}}{2N}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20C%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%5Cfrac%7B1%7D%7B2N%7D%5Cleft%20%28%20y_%7Bi%7D-Y_%7Bi%7D%20%5Cright%20%29%5E%7B2%7D%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%5Cfrac%7Be_%7Bi%7D%5E%7B2%7D%7D%7B2N%7D){: .mx-auto.d-block :}
+
+Here **N** is the total number of data points or total number of available samples (**N** is 5 in our case). This function is same as Mean Square Error (MSE), where you first calculate the residual ***e<sub>i</sub> = y<sub>i</sub> - Y<sub>i</sub>*** for all the data points, then you square it and find the mean of all the residuals (you will have to multiply it by a factor of 0.5 also).
+
+### Least Square Method
+
+Now that we are familiar with the term Residuals and Cost function (or total prediction error) we can move forward towards our main objective (i.e. to find the optimum value of the weights such that the total error associated with our prediction is ***minimum***). The **Least Square Method** states that the best fit curve have a minimum sum of the squared residuals (or minimum Cost function) from the given data points. We see here that the word ***minimum*** is used. So what should be our approach now? Yes you have guessed it right! We will now be dealing with the derivatives of the function.
+
+When we substitute the predicted output ***y<sub>i</sub> = w<sub>0</sub> + w<sub>1</sub>X<sub>i</sub>*** into the Cost function (**C**) we get:
+
+![Data2](/assets/img/cost2.PNG){: .mx-auto.d-block :}
+
+We see that our Cost function is now a function of the variable **w<sub>0</sub>** and **w<sub>1</sub>**, i.e. **C = C(w<sub>0</sub>, w<sub>1</sub>)**. So, in order to minimise this Cost function, we find the partial derivative of **C** with respect to **w<sub>0</sub>** and **w<sub>1</sub>** and equate it to zero (as shown in the figure below). 
+
+![\Large \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{0}} = 0 ;\hspace{0.3cm} \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{1}} = 0](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B0%7D%7D%20%3D%200%20%3B%5Chspace%7B0.3cm%7D%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B1%7D%7D%20%3D%200){: .mx-auto.d-block :}
+
+I will skip the derivation part and will directly provide the optimum value of the weights **w<sub>0</sub>** and **w<sub>1</sub>** (as given in the figure below)
+
+![Data2](/assets/img/formulaweights.PNG){: .mx-auto.d-block :}
 
 Here's a code chunk:
 
