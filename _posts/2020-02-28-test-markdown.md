@@ -4,6 +4,7 @@ title: Everything you need to know about Simple Linear Regression!
 subtitle: Machine Learning Episode-1.1
 gh-repo: daattali/beautiful-jekyll
 gh-badge: [star, fork, follow]
+comments: true
 tags: [test]
 comments: true
 ---
