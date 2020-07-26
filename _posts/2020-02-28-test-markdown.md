@@ -42,10 +42,10 @@ However, in the world of data science, we never talk about the deterministic rel
 
 Simple Linear Regression is a basic regression analysis where we have just two variables (an independent variable and a dependent variable) and based on the changes made to the independent variable (**X**), we try to predict the outcome of the dependent variable (**Y**). Let us understand this through a fictitious example.
 
-This table shows the investment of the company in its business over the years. Our task at hand is to predict the investment of the company in the 6<sup>th</sup> year using Simple Linear Regression model. So how will you do that?
+This table shows the investment of the company in its business over the years. Our task at hand is to predict the investment of the company when **Years = 3.5** using Simple Linear Regression model. So how will you do that?
 
 | Years | Investment (in M) |
-| :------ |:--- |
+| :------: |:---: |
 | 0 | 2 |
 | 1 | 3 |
 | 2 | 5 |
@@ -67,9 +67,22 @@ The core idea in Simple Linear Regression is to obtain a line that best fits the
 
 ![\Large y=w_{0}+w_{1}X ](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20y%3Dw_%7B0%7D&plus;w_%7B1%7DX){: .mx-auto.d-block :}
 
-where **'y'** represents the predicted output for a given input **'X'**. The terms **'w<sub>0</sub>'** and **'w<sub>1</sub>'** represents the *Y-intercept* of the line (i.e. the point where the given line intersects the Y-axis) and *Slope* of the given line respectively. Let us collectively call the terms **'w<sub>0</sub>'** and **'w<sub>1</sub>'** as  the weights attached to the input (or simply **'weights'**)
+where **'y'** represents the predicted output for a given input **'X'**. The terms **'w<sub>0</sub>'** and **'w<sub>1</sub>'** represents the *Y-intercept* of the line (i.e. the point where the given line intersects the Y-axis) and *Slope* of the given line respectively. However, for the case of one input variable and one output variable, it was relatively easy to label the coefficients **'w<sub>0</sub>'** and **'w<sub>1</sub>'** as the *Y-intercept* and the *Slope* of a line, because it is easier to visualize them. But, when we include multiple variables into the picture, things become more complex and simply designating the coefficients as *Y-intercept* and *Slope* is not a good idea. Therefore, we should come up with something more general. This problem can be resolved by collectively calling the terms **'w<sub>0</sub>'** and **'w<sub>1</sub>'** as the weights attached to the input variables (or simply the **'weights'**). 
 
-In the figure given below, we find that there can be multiple lines with which we can fit the given data. But the best fit line is the one for which the total prediction error for all the data points is as small as possible, i.e. we find the optimum value of the weights such that the total error associated with our prediction is ***minimum***.
+The above equation can also be rewritten in this fashion: 
+
+![\Large y=w_{0}.1+w_{1}.X ](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20y%3Dw_%7B0%7D.1&plus;w_%7B1%7D.X){: .mx-auto.d-block :}
+
+Therefore, now you can consider the above model having two input variables (**1** and **X**) and one output variable (**y**) and the weights associated with this input variables are **'w<sub>0</sub>'** and **'w<sub>1</sub>'** respectively.
+
+{: .box-note}
+**Note:** In machine learning terminology, the weights associated with the additional input variable (**1**) is also known as **Bias**.
+
+Thus, the general representation of the predicted output (for any ML algorithm) can be represented as follows:
+
+![Data](/assets/img/bias.PNG){: .mx-auto.d-block :}
+
+In the figure given below, we find that there can be multiple lines with which we can fit the given data. But the best fit line is the one for which the total prediction error for all the data points is as small as possible, i.e. we find the optimum value of the weights and the bias such that the total error associated with our prediction is ***minimum***.
 
 
 ![Data2](/assets/img/datavisualization2.png){: .mx-auto.d-block :}
@@ -92,9 +105,9 @@ We donote this residual term at the i<sup>th</sup> data point as **e<sub>i</sub>
 
 2. **Cost Function**
 
-**Cost function** in a machine learning terminology is simply a measure of how incorrect the model is in term of its ability to evaluate the relationship between **X** and **Y**. **Cost Function** quantifies the error between predicted values (**y**) and actual values (**Y**) and presents it in the form of a single real number [10]. Thus Cost function, in layman terminology is nothing but the total prediction error. We denote this single real number by **C**. 
+**Cost function** in a machine learning terminology is simply a measure of how incorrect the model is in term of its ability to evaluate the relationship between **X** and **Y**. **Cost Function** quantifies the error between predicted values (**y**) and actual values (**Y**) and presents it in the form of a single real number. Thus Cost function, in layman terminology is nothing but the total prediction error. We denote this single real number by **C**. 
 
-Now you can sense a relationship between Residual and Cost function. Residual denotes the error for a single data point, whereas the Cost function denotes the error for all the given data points. Now, in order to develop a model which can accurately predict the output, we just need to minimize the Cost function (**C**). Depending on the problem, the Cost Function can be formed in many different ways. But for our case, it will be given as:
+Now you can sense a relationship between the Residual and the Cost function. Residual denotes the error for a single data point, whereas the Cost function denotes the error for all the given data points. So, in order to develop a model which can accurately predict the output, we just need to minimize the Cost function (**C**). Depending on the problem, the Cost Function can be formed in many different ways. But for our case, it will be given as:
 
 
 ![\Large C=\sum_{i=1}^{N}\frac{1}{2N}\left ( y_{i}-Y_{i} \right )^{2}=\sum_{i=1}^{N}\frac{e_{i}^{2}}{2N}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20C%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%5Cfrac%7B1%7D%7B2N%7D%5Cleft%20%28%20y_%7Bi%7D-Y_%7Bi%7D%20%5Cright%20%29%5E%7B2%7D%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%5Cfrac%7Be_%7Bi%7D%5E%7B2%7D%7D%7B2N%7D){: .mx-auto.d-block :}
@@ -115,10 +128,42 @@ We see that our Cost function is now a function of the variable **w<sub>0</sub>*
 
 ![\Large \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{0}} = 0 ;\hspace{0.3cm} \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{1}} = 0](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B0%7D%7D%20%3D%200%20%3B%5Chspace%7B0.3cm%7D%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B1%7D%7D%20%3D%200){: .mx-auto.d-block :}
 
-I will skip the derivation part and will directly provide the optimum value of the weights **w<sub>0</sub>** and **w<sub>1</sub>** (as given in the figure below)
+I will skip the derivation part and will directly provide the optimum value of the bias and weight **w<sub>0</sub>** and **w<sub>1</sub>** respectively (as given in the figure below)
 
 
 ![Data2](/assets/img/formulaweights.PNG){: .mx-auto.d-block :}
+
+**Solution to the above Example**
+
+I know the above formula looks scary. But don't be frightened, as I will show a step by step method (which can be easily followed) to calculate the optimum values of **w<sub>0</sub>** and **w<sub>1</sub>** using the above formula.
+
+If you observe the formula carefully, all we need to calculate the weights and biases are the values of **ΣX**, **ΣY**, **ΣXY** and **ΣX<sup>2</sup>** and **N** (which is 5 in our case). That's it! Let us calculate these values with the help of the following table.  
+
+| i | X<sub>i</sub> | Y<sub>i</sub> | X<sub>i</sub><sup>2</sup> | X<sub>i</sub>Y<sub>i</sub> |
+| :------: |:---: | :------: |:---: | :------: |
+| 1 | 0 | 2 | 0 | 0 |
+| 2 | 1 | 3 | 1 | 3 |
+| 3 | 2 | 5 | 4 | 10 |
+| 4 | 3 | 4 | 9 | 12 |
+| 5 | 4 | 6 | 16 | 24 |
+| Sum | **ΣX=10** | **ΣY=20** | **ΣX<sup>2</sup>=30** | **ΣXY=49** |
+
+On substituting the values of **ΣX**, **ΣY**, **ΣXY** and **ΣX<sup>2</sup>** and **N** in the given formula for **w<sub>0</sub>** and **w<sub>1</sub>**, we get
+
+![Data2](/assets/img/weightsvalues.PNG){: .mx-auto.d-block :}
+
+Once we know the value of the regression coefficients (or the weights and biases), the regression equation (or the equation of the predicted output) becomes: 
+
+![\Large y=2.2+0.9X](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20y%3D2.2&plus;0.9X){: .mx-auto.d-block :}
+
+Remember our goal was to predict the investment of the company when **Years = 3.5** using Simple Linear Regression model. Since you have the regression equation (**y**), using it is a snap. Just substitute the value of **X = 3.5** in the above equation of regression line to get the value of **y** (investment of the company) as 5.35M!
+
+![\Large y=2.2+0.9 \times 3.5 = 5.35](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20y%3D2.2&plus;0.9%20%5Ctimes%203.5%20%3D%205.35){: .mx-auto.d-block :}
+
+{: .box-warning}
+**Warning:** When you use a regression equation, do not use values for the independent variable (**X**) that are outside the range of values used to create the equation. That is called extrapolation, and it can produce unreasonable estimates.
+
+In our example, the **Years** (X) used to create the regression equation (**y = 2.2 + 0.9X**) ranged from 0 to 4. Therefore, only use values inside that range to estimate the investment of the company (**y**). Using values outside that range (less than 0 or greater than 4) is problematic.
 
 Here's a code chunk:
 
