@@ -21,7 +21,8 @@ The independent variable is the variable the experimenter changes or controls an
 * [Introduction to Simple Linear Regression](#introduction-to-simple-linear-regression)
 * [Residuals and Cost Function](#residuals-and-cost-function)
 * [Least Square Method](#least-square-method)
-* Find the Coefficient of Determination (R<sup>2</sup>)
+* Coefficient of Determination (R<sup>2</sup>)
+* Extending SLR to Multiple Linear Regression
 * Coding (in python) from scratch
 * Coding (in python) using libraries
 * Applications and Usage 
@@ -62,12 +63,12 @@ This is how the plot will look like:
 
 ![Data](/assets/img/datavisualization.png){: .mx-auto.d-block :}
 
-The core idea in Simple Linear Regression is to obtain a line that best fits the data. Mathematically, the equation of such a line is of the form:
+The core idea in Simple Linear Regression is to obtain a line that best fits the data. This regression line is designed to provide the average of **Y** for any given value of **X**. Mathematically, the equation of such a line is of the form:
 
 
 ![\Large y=w_{0}+w_{1}X ](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20y%3Dw_%7B0%7D&plus;w_%7B1%7DX){: .mx-auto.d-block :}
 
-where **'y'** represents the predicted output for a given input **'X'**. The terms **'w<sub>0</sub>'** and **'w<sub>1</sub>'** represents the *Y-intercept* of the line (i.e. the point where the given line intersects the Y-axis) and *Slope* of the given line respectively. However, for the case of one input variable and one output variable, it was relatively easy to label the coefficients **'w<sub>0</sub>'** and **'w<sub>1</sub>'** as the *Y-intercept* and the *Slope* of a line, because it is easier to visualize them. But, when we include multiple variables into the picture, things become more complex and simply designating the coefficients as *Y-intercept* and *Slope* is not a good idea. Therefore, we should come up with something more general. This problem can be resolved by collectively calling the terms **'w<sub>0</sub>'** and **'w<sub>1</sub>'** as the weights attached to the input variables (or simply the **'weights'**). 
+where **y** represents the predicted output for a given input **X**. The terms **w<sub>0</sub>** and **w<sub>1</sub>** represents the *Y-intercept* of the line (i.e. the point where the given line intersects the Y-axis) and *Slope* of the given line respectively. However, for the case of one input variable and one output variable, it was relatively easy to label the coefficients **w<sub>0</sub>** and **w<sub>1</sub>** as the *Y-intercept* and the *Slope* of a line, because it is easier to visualize them. But, when we include multiple variables into the picture, things become more complex and simply designating the coefficients as *Y-intercept* and *Slope* is not a good idea. Therefore, we should come up with something more general. This problem can be resolved by collectively calling the terms **w<sub>0</sub>** and **w<sub>1</sub>** as the weights attached to the input variables. 
 
 The above equation can also be rewritten in this fashion: 
 
@@ -76,7 +77,7 @@ The above equation can also be rewritten in this fashion:
 Therefore, now you can consider the above model having two input variables (**1** and **X**) and one output variable (**y**) and the weights associated with this input variables are **'w<sub>0</sub>'** and **'w<sub>1</sub>'** respectively.
 
 {: .box-note}
-**Note:** In machine learning terminology, the weights associated with the additional input variable (**1**) is also known as **Bias**.
+**Note:** In machine learning terminology, the weight associated with the additional input variable (**1**) is also known as **Bias**.
 
 Thus, the general representation of the predicted output (for any ML algorithm) can be represented as follows:
 
@@ -164,6 +165,21 @@ Remember our goal was to predict the investment of the company when **Years = 3.
 **Warning:** When you use a regression equation, do not use values for the independent variable (**X**) that are outside the range of values used to create the equation. That is called extrapolation, and it can produce unreasonable estimates.
 
 In our example, the **Years** (X) used to create the regression equation (**y = 2.2 + 0.9X**) ranged from 0 to 4. Therefore, only use values inside that range to estimate the investment of the company (**y**). Using values outside that range (less than 0 or greater than 4) is problematic.
+
+### Coefficient of Determination
+
+Since our scattered data points (**Y**) does not lie completely on the regression line (**y**) (i.e., although the cost function is minimized, it is not zero), therefore a line is not a perfect explanation of the data or a perfect match to variation in **Y**. This is where the Coefficient of Determination (also known as R-squared value) comes into the picture. The Coefficient of Determination is comparing how much of true variation in **Y** is in fact explained by the best straight line provided by the regression model **y**. If R-squared value is close to zero then it indicates you should consider models other than straight lines, and if it is close to one, then the straight line model is a good fit to the data points.
+
+Before jumping to the mathematics, let us try to understand the concept more intuitively. As we have already seen before that the Cost function (or the Standard Error) measures the error that one commits with their estimation of the relation between **X** and **y** (regression line). Assume if we had no better tools for fitting lines to the data points, then whats the best that we could have done? We would just have taken a horizontal line that goes through the mean of the **Y** values available. So, in that case, ***y = mean(Y)*** is the line (which is of the form ***y = constant***) that minimizes the Cost function (in this case, your Cost function will simply become the **variance of Y**). You can see that **Mean(Y)** will stay the same, no matter what value of **X** is. It is completely independent of **X**. 
+
+Still, we know that a constant line is the most basic model one could come up with, as a linear function, an exponential function, a quadratic function, etc. all can adapt better to data points (as they have more parameters to play with) than a line ***y = constant***. So, the **Cost function of y = Mean(Y)** can be seen as the error that is committed by fitting points with the worst (or most basic) model available.
+
+So the **Cost function(line: y = w<sub>0</sub> + w<sub>1</sub>X)** will never be higher than the biggest ever possible error **Cost function of y = Mean(Y)**. If we see things this way, then the ratio of **Cost function(line) / Cost function(Mean(Y))** is to see what part of the maxim possible error **Cost function(Mean(Y))** is the error of the regression line **Cost function(y)**.
+
+Now we are ready to define mathematically the Coefficient of Determination (R<sup>2</sup>). It is just 1 - the ratio of Cost function of the regression line **(y = w<sub>0</sub> + w<sub>1</sub>X)** to the Cost function of the regression line **y = Mean(Y)** (after you know what percentage of the MAXIMUM error possible, represents the error of the regression line, you can find what percentage is good. That's why you subtract the fraction from 1). On simplifying the ratio, we get the value of **R<sup>2</sup>** as :
+
+![Data2](/assets/img/rsquare.PNG){: .mx-auto.d-block :}
+
 
 Here's a code chunk:
 
