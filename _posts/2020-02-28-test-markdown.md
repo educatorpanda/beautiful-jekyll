@@ -5,6 +5,7 @@ subtitle: Machine Learning Episode-1.1
 gh-repo: daattali/beautiful-jekyll
 gh-badge: [star, fork, follow]
 comments: true
+categories: Machine Learning
 readtime: true
 tags: [test]
 comments: true
