@@ -6,7 +6,7 @@ gh-repo: educatorpanda/educatorpanda.github.io
 gh-badge: [star, follow]
 comments: true
 readtime: true
-tags: [Machine Learning]
+tags: [Machine Learning, Python]
 comments: true
 ---
 
