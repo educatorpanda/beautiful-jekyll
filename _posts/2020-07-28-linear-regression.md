@@ -23,7 +23,7 @@ The independent variable is the variable the experimenter changes or controls an
 * [Introduction to Simple Linear Regression](#introduction-to-simple-linear-regression)
 * [Residuals and Cost Function](#residuals-and-cost-function)
 * [Least Square Method](#least-square-method)
-* Coefficient of Determination (R<sup>2</sup>)
+* [Coefficient of Determination (R<sup>2</sup>)](#coefficient-of-determination)
 * Extending SLR to Multiple Linear Regression
 * Coding (in python) from scratch
 * Coding (in python) using libraries
