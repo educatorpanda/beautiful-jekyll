@@ -2,7 +2,7 @@
 layout: post
 title: Everything you need to know about Simple Linear Regression!
 subtitle: Machine Learning Episode-1.1
-gh-repo: daattali/beautiful-jekyll
+gh-repo: educatorpanda/educatorpanda.github.io
 gh-badge: [star, fork, follow]
 comments: true
 readtime: true
@@ -170,15 +170,24 @@ In our example, the **Years** (X) used to create the regression equation (**y = 
 
 ### Coefficient of Determination
 
-Since our scattered data points (**Y**) does not lie completely on the regression line (**y**) (i.e., although the cost function is minimized, it is not zero), therefore a line is not a perfect explanation of the data or a perfect match to variation in **Y**. This is where the Coefficient of Determination (also known as R-squared value) comes into the picture. The Coefficient of Determination is comparing how much of true variation in **Y** is in fact explained by the best straight line provided by the regression model **y**. If R-squared value is close to zero then it indicates you should consider models other than straight lines, and if it is close to one, then the straight line model is a good fit to the data points.
+Since our scattered data points (**Y**) does not lie completely on the regression line (**y**) (i.e., although the cost function is minimized, it is not zero), therefore a line is not a perfect explanation of the data or a perfect match to variation in **Y**. This is where the Coefficient of Determination (also known as R-squared value) comes into the picture. The Coefficient of Determination is comparing how much of true variation in **Y** is in fact explained by the best straight line provided by the regression model **y**. 
 
-Before jumping to the mathematics, let us try to understand the concept more intuitively. As we have already seen before that the Cost function (or the Standard Error) measures the error that one commits with their estimation of the relation between **X** and **y** (regression line). Assume if we had no better tools for fitting lines to the data points, then whats the best that we could have done? We would just have taken a horizontal line that goes through the mean of the **Y** values available. So, in that case, ***y = mean(Y)*** is the line (which is of the form ***y = constant***) that minimizes the Cost function (in this case, your Cost function will simply become the **variance of Y**). You can see that **Mean(Y)** will stay the same, no matter what value of **X** is. It is completely independent of **X**. 
+Before jumping to the mathematics, let us try to understand the concept more intuitively. As we have already seen before that the Cost function (or the Standard Error) measures the error that one commits with their estimation of the relation between **X** and **y** (regression line). Assume if we had no better tools for fitting lines to the data points, then what's the best thing that we could have done?  
 
-Still, we know that a constant line is the most basic model one could come up with, as a linear function, an exponential function, a quadratic function, etc. all can adapt better to data points (as they have more parameters to play with) than a line ***y = constant***. So, the **Cost function of y = Mean(Y)** can be seen as the error that is committed by fitting points with the worst (or most basic) model available.
+We know one thing that **Mean(Y)** will stay the same, no matter what value of **X** is. It is completely independent of **X**. Therefore we would have just taken a horizontal line that goes through the **Mean(Y)**. So, in that case, ***y = Mean(Y)*** is the line (which is of the form ***y = constant***) that minimizes the Cost function (and in this case, your Cost function will simply become the **variance of Y**).
 
-So the **Cost function(line: y = w<sub>0</sub> + w<sub>1</sub>X)** will never be higher than the biggest ever possible error **Cost function of y = Mean(Y)**. If we see things this way, then the ratio of **Cost function(line) / Cost function(Mean(Y))** is to see what part of the maxim possible error **Cost function(Mean(Y))** is the error of the regression line **Cost function(y)**.
+Still, we know that a constant line is the most basic model one could come up with, as a linear function, an exponential function, a quadratic function, etc. all can adapt better to data points (as they have more parameters to play with) than a line ***y = constant***. So, the **Cost function of y = Mean(Y)** can be seen as the error that is committed by fitting data points with the worst (or the most basic) model available.
 
-Now we are ready to define mathematically the Coefficient of Determination (R<sup>2</sup>). It is just 1 - the ratio of Cost function of the regression line **(y = w<sub>0</sub> + w<sub>1</sub>X)** to the Cost function of the regression line **y = Mean(Y)** (after you know what percentage of the MAXIMUM error possible, represents the error of the regression line, you can find what percentage is good. That's why you subtract the fraction from 1). On simplifying the ratio, we get the value of **R<sup>2</sup>** as :
+For simplicity, let us denote 
+* Cost function of the regression line: ***y = w<sub>0</sub> + w<sub>1</sub>X)*** as **C<sub>L</sub>** 
+* Cost function of the line ***y = Mean(Y)*** as **C<sub>M</sub>** 
+
+Hence we can conclude that **C<sub>L</sub>** will never be higher than the biggest ever possible error **C<sub>M</sub>**. If we see things this way, then the ratio **C<sub>L</sub>**/**C<sub>M</sub>** tells us what part of the maximum possible error **C<sub>M</sub>** is the error of the regression line **C<sub>L</sub>** (or the bad-fit percentage). Therefore you can find how good your model is fitting the data points by subtracting the fraction from 1, and this is known as **Coefficient of Determination!**.
+It is also denoted as **R<sup>2</sup>**.
+
+So, if **R<sup>2</sup>** value is close to zero then it indicates you should consider models other than straight lines (as **C<sub>L</sub>** will be higher), and if it is close to one, then the straight line model is a good fit to the data points (as **C<sub>L</sub>** will be close to zero). Phew!
+
+On simplifying the ratio, we get the value of **R<sup>2</sup>** as :
 
 ![Data2](/assets/img/rsquare.PNG){: .mx-auto.d-block :}
 
