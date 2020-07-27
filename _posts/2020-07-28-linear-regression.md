@@ -29,13 +29,13 @@ The independent variable is the variable the experimenter changes or controls an
 
 
 ### Introduction to Simple Linear Regression 
-As you may have studied in your high school, the relationship between the two different units of Temperature, degrees Fahrenheit (F) and degrees Celsius (C) is known to be:  
+As you may have studied in your high school, the relationship between two different units of Temperature, degrees Fahrenheit (F) and degrees Celsius (C) is known to be:  
 
 ![\Large F= \frac{9}{5}C+32](https://latex.codecogs.com/gif.latex?F%3D%20%5Cfrac%7B9%7D%7B5%7DC&plus;32){: .mx-auto.d-block :}
 
 ![Temperature](/assets/img/CelciusFahrenheit.PNG){: .mx-auto.d-block :}
 
-That is, if you know the temperature in degrees Celsius, you can use this equation to determine the temperature in degrees Fahrenheit **exactly**. Such a relationship is called a deterministic (or functional) relationship. In a deterministic relationship, the equation **exactly** describes the relationship between the two variables.
+That is, if you know the temperature in degrees Celsius, you can use this equation to determine the temperature in degrees Fahrenheit **exactly**. Such a relationship is called a deterministic (or functional) relationship. In a deterministic relationship, the equation **exactly** describes the relationship between two variables.
 
 However, in the world of data science, we never talk about the deterministic relationship. Instead, we are always interested in statistical relationships. So, today let us understand in detail, one of the most basic method which is used to establish the statistical relationship between two variables (an independent variable and a dependent variable) known as **Simple Linear Regression**. 
 
@@ -43,7 +43,7 @@ However, in the world of data science, we never talk about the deterministic rel
 
 Simple Linear Regression is a basic regression analysis where we have just two variables (an independent variable and a dependent variable) and based on the changes made to the independent variable (**X**), we try to predict the outcome of the dependent variable (**Y**). Let us understand this through a fictitious example.
 
-> **Example**: This table shows the investment of the company in its business over the years. Our task at hand is to predict the investment of the company when **Years = 3.5** using Simple Linear Regression model. So how will you do that?
+> **Example**: This table shows the investment of the company in its business over the years. Our task at hand is to predict the investment of the company when **Years = 3.5** using Simple Linear Regression model. How will you do that?
 
 | Years | Investment (in M) |
 | :------: |:---: |
@@ -68,13 +68,13 @@ The core idea in Simple Linear Regression is to obtain a line that best fits the
 
 ![\Large y=w_{0}+w_{1}X ](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20y%3Dw_%7B0%7D&plus;w_%7B1%7DX){: .mx-auto.d-block :}
 
-where **y** represents the predicted output for a given input **X**. The terms **w<sub>0</sub>** and **w<sub>1</sub>** represents the *Y-intercept* of the line (i.e. the point where the given line intersects the Y-axis) and *Slope* of the given line respectively. However, for the case of one input variable and one output variable, it was relatively easy to label the coefficients **w<sub>0</sub>** and **w<sub>1</sub>** as the *Y-intercept* and the *Slope* of a line, because it is easier to visualize them. But, when we include multiple variables into the picture, things become more complex and simply designating the coefficients as *Y-intercept* and *Slope* is not a good idea. Therefore, we should come up with something more general. This problem can be resolved by collectively calling the terms **w<sub>0</sub>** and **w<sub>1</sub>** as the weights attached to the input variables. 
+where **y** represents the predicted output for a given input **X**. The terms **w<sub>0</sub>** and **w<sub>1</sub>** represents the *Y-intercept* (i.e. the point where the given line intersects the Y-axis) and *Slope* of the given line respectively. However, for the case of one input variable and one output variable, it was relatively easy to label the coefficients **w<sub>0</sub>** and **w<sub>1</sub>** as the *Y-intercept* and the *Slope* of a line, because it is easier to visualize them. But, when we include multiple variables into the picture, things become more complex and simply designating the coefficients as *Y-intercept* and *Slope* is not a good idea. Therefore, we should come up with something more general. This problem can be resolved by collectively calling the terms **w<sub>0</sub>** and **w<sub>1</sub>** as the weights attached to the input variables. 
 
 The above equation can also be rewritten in this fashion: 
 
 ![\Large y=w_{0}.1+w_{1}.X ](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20y%3Dw_%7B0%7D.1&plus;w_%7B1%7D.X){: .mx-auto.d-block :}
 
-Therefore, now you can consider the above model having two input variables (**1** and **X**) and one output variable (**y**) and the weights associated with this input variables are **'w<sub>0</sub>'** and **'w<sub>1</sub>'** respectively.
+Therefore, now you can consider the above model having two input variables (**1** and **X**) and one output variable (**y**) and the weights associated with this input variables are **w<sub>0</sub>** and **w<sub>1</sub>** respectively.
 
 {: .box-note}
 **Note:** In machine learning terminology, the weight associated with the additional input variable (**1**) is also known as **Bias**.
@@ -83,7 +83,7 @@ Thus, the general representation of the predicted output (for any ML algorithm) 
 
 ![Data](/assets/img/bias.PNG){: .mx-auto.d-block :}
 
-In the figure given below, we find that there can be multiple lines with which we can fit the given data. But the best fit line is the one for which the total prediction error for all the data points is as small as possible, i.e. we find the optimum value of the weights and the bias such that the total error associated with our prediction is ***minimum***.
+In the figure given below, we find that there can be multiple lines with which we can fit our given data. But the best fit line is the one for which the total prediction error for all the data points is as small as possible, i.e. we find the optimum value of the weights and the bias such that the total error associated with our prediction is ***minimum***.
 
 
 ![Data2](/assets/img/datavisualization2.png){: .mx-auto.d-block :}
@@ -92,9 +92,9 @@ In the figure given below, we find that there can be multiple lines with which w
 
 Taking about the errors, let us understand the concept of **Residual** and Total prediction error (or the **Cost Function**)
 
-1. **Residual**
+**Residual**
 
-Out of the given multiple lines in the above figure, let us arbitrarily choose a line and call it as ***L*** such that ***Line L: y = w<sub>0</sub> + w<sub>1</sub>X*** becomes the regression line. So, a Residual is simply the vertical distance (denoted by the red line, in the figure below) between a data point and the regression line ***L***. Each data point has one residual. In our example, we have 5 data points, so there will be 5 residuals in total. They are negative if they are above the regression line and positive if they are below the regression line. If the regression line actually passes through the point, the residual at that point is zero.
+Out of the given multiple lines in the above figure, let us arbitrarily choose one line and call it as ***L*** such that ***Line L: y = w<sub>0</sub> + w<sub>1</sub>X*** becomes the regression line. So, a Residual is simply the vertical distance (denoted by the red line, in the figure below) between a data point and the regression line ***L***. Each data point has one residual. In our example, we have 5 data points, so there will be 5 residuals in total. They are negative if they are above the regression line and positive if they are below the regression line. If the regression line actually passes through the point, the residual at that point is zero.
 
 
 ![Residual](/assets/img/residual.PNG){: .mx-auto.d-block :}
@@ -104,7 +104,7 @@ We donote this residual term at the i<sup>th</sup> data point as **e<sub>i</sub>
 
 ![\Large e_{i}=y_{i}-Y_{i}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20e_%7Bi%7D%3Dy_%7Bi%7D-Y_%7Bi%7D){: .mx-auto.d-block :}
 
-2. **Cost Function**
+**Cost Function**
 
 **Cost function** in a machine learning terminology is simply a measure of how incorrect the model is in term of its ability to evaluate the relationship between **X** and **Y**. **Cost Function** quantifies the error between predicted values (**y**) and actual values (**Y**) and presents it in the form of a single real number. Thus Cost function, in layman terminology is nothing but the total prediction error. We denote this single real number by **C**. 
 
@@ -113,7 +113,7 @@ Now you can sense a relationship between the Residual and the Cost function. Res
 
 ![\Large C=\sum_{i=1}^{N}\frac{1}{2N}\left ( y_{i}-Y_{i} \right )^{2}=\sum_{i=1}^{N}\frac{e_{i}^{2}}{2N}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20C%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%5Cfrac%7B1%7D%7B2N%7D%5Cleft%20%28%20y_%7Bi%7D-Y_%7Bi%7D%20%5Cright%20%29%5E%7B2%7D%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%5Cfrac%7Be_%7Bi%7D%5E%7B2%7D%7D%7B2N%7D){: .mx-auto.d-block :}
 
-Here **N** is the total number of data points or total number of available samples (**N** is 5 in our case). This function is same as Mean Square Error (MSE), where you first calculate the residual ***e<sub>i</sub> = y<sub>i</sub> - Y<sub>i</sub>*** for all the data points, then you square it and find the mean of all the residuals (you will have to multiply it by a factor of 0.5 also).
+Here **N** is the total number of data points or total number of available samples (**N** is 5 in our case). This function is same as Mean Square Error (MSE), where you first calculate the residual ***e<sub>i</sub> = y<sub>i</sub> - Y<sub>i</sub>*** for all the data points, then you square it and find the mean of all the squared residuals (don't forget to it by a factor of 0.5 also).
 
 ### Least Square Method
 
@@ -128,7 +128,7 @@ We see that our Cost function is now a function of the variable **w<sub>0</sub>*
 
 ![\large \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{0}} = 0 ;\hspace{0.3cm} \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{1}} = 0](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B0%7D%7D%20%3D%200%20%3B%5Chspace%7B0.3cm%7D%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B1%7D%7D%20%3D%200){: .mx-auto.d-block :}
 
-I will skip the derivation part and will directly provide the optimum value of the bias and weight **w<sub>0</sub>** and **w<sub>1</sub>** respectively (as given in the figure below)
+I will skip the derivation part and will directly provide the optimum value of the bias and weight **w<sub>0</sub>** and **w<sub>1</sub>** respectively (shown in the figure below)
 
 
 ![Data2](/assets/img/formulaweights.PNG){: .mx-auto.d-block :}
@@ -137,7 +137,7 @@ I will skip the derivation part and will directly provide the optimum value of t
 
 I know the above formula looks scary. But don't be frightened, as I will show a step by step method (which can be easily followed) to calculate the optimum values of **w<sub>0</sub>** and **w<sub>1</sub>** using the above formula.
 
-If you observe the formula carefully, all we need to calculate the weights and biases are the values of **ΣX**, **ΣY**, **ΣXY** and **ΣX<sup>2</sup>** and **N** (which is 5 in our case). That's it! Let us calculate these values with the help of the following table.  
+If you observe the formula carefully, all we need to calculate the weights and biases are the values of **ΣX**, **ΣY**, **ΣXY**, **ΣX<sup>2</sup>** and **N** (which is 5 in our case). That's it! Let us calculate these values with the help of the following table.  
 
 | i | X<sub>i</sub> | Y<sub>i</sub> | X<sub>i</sub><sup>2</sup> | X<sub>i</sub>Y<sub>i</sub> |
 | :------: |:---: | :------: |:---: | :------: |
@@ -171,7 +171,7 @@ Since our scattered data points (**Y**) does not lie completely on the regressio
 
 Before jumping to the mathematics, let us try to understand the concept more intuitively. As we have already seen before that the Cost function (or the Standard Error) measures the error that one commits with their estimation of the relation between **X** and **y** (regression line). Assume if we had no better tools for fitting lines to the data points, then what's the best thing that we could have done?  
 
-We know one thing that **Mean(Y)** will stay the same, no matter what value of **X** is. It is completely independent of **X**. Therefore we would have just taken a horizontal line that goes through the **Mean(Y)**. So, in that case, ***y = Mean(Y)*** is the line (which is of the form ***y = constant***) that minimizes the Cost function (and in this case, your Cost function will simply become the **variance of Y**).
+We know one thing that **Mean(Y)** will stay the same, no matter what the value of **X** is. It is completely independent of **X**. Therefore we would have just taken a horizontal line that goes through the **Mean(Y)**. So, in that case, ***y = Mean(Y)*** is the line (which is of the form ***y = constant***) that minimizes the Cost function (and in this case, your Cost function will simply become the **variance of Y**).
 
 Still, we know that a constant line is the most basic model one could come up with, as a linear function, an exponential function, a quadratic function, etc. all can adapt better to data points (as they have more parameters to play with) than a line ***y = constant***. So, the **Cost function of y = Mean(Y)** can be seen as the error that is committed by fitting data points with the worst (or the most basic) model available.
 
@@ -207,7 +207,7 @@ The **R<sup>2</sup>** value of 0.81 (or 81%) tells that 81% of the data points s
 
 ### Multiple Linear Regression
 
-Till now we have been dealing with only a single input variable (**X**). Now consider another example where the mileage of a car depends upon say the maximum speed and the lenght of the car. So in this case, you have 2 independent variables namely maximum speed and the length of the car. Let us denote them by **X<sup>1</sup>** and **X<sup>2</sup>** respectively. Let the dependent variable (the mileage of car) be represented as **Y**. If we assume a linear relationship between independent and dependent variable(s), then this is the case of **Multiple Linear Regression** as more than one variables are involved.
+Till now we have been dealing with only a single input variable (**X**). Now consider another example where the mileage of a car depends upon say the maximum speed and the lenght of the car. So in this case, you have 2 independent variables namely maximum speed and the length of the car. Let us denote them by **X<sub>1</sub>** and **X<sub>2</sub>** respectively. Let the dependent variable (the mileage of car) be represented as **Y**. If we assume a linear relationship between independent and dependent variable(s), then this is the case of **Multiple Linear Regression** as more than one variables are involved.
 
 Multiple Linear Regression model is just an extension of Simple Linear Regression, where our predicted output **y** can be thought of as the weighted sum of the inputs plus a bias term. So, if your actual output **Y** depends upon M different input variables (**X<sub>1</sub>**, **X<sub>2</sub>**, ..., **X<sub>M</sub>**), then the predicted output **y** is given as
 
@@ -242,27 +242,26 @@ Now let us define matrices **X**, **w** and **y** as follows
 
 ![mlr2](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20X%3D%20%5Cbegin%7Bbmatrix%7D%201%20%26%20X_%7B11%7D%20%26%20X_%7B21%7D%20%26%20%5Ccdots%20%26%20X_%7BM1%7D%5C%5C%201%20%26%20X_%7B12%7D%20%26%20X_%7B22%7D%20%26%20%5Ccdots%20%26%20X_%7BM2%7D%5C%5C%20%5Ccdots%20%26%20%5Ccdots%20%26%20%5Ccdots%20%26%20%5Ccdots%20%26%20%5Ccdots%5C%5C%201%20%26%20X_%7B1N%7D%20%26%20X_%7B2N%7D%20%26%20%5Ccdots%20%26%20X_%7BMN%7D%20%5Cend%7Bbmatrix%7D%3B%20%5Chspace%7B0.3cm%7D%20y%3D%20%5Cbegin%7Bbmatrix%7D%20y_%7B1%7D%5C%5C%20y_%7B2%7D%5C%5C%20%5Cvdots%20%5C%5C%20y_%7BN%7D%20%5Cend%7Bbmatrix%7D%3B%20%5Chspace%7B0.3cm%7D%20w%3D%20%5Cbegin%7Bbmatrix%7D%20w_%7B0%7D%5C%5C%20w_%7B1%7D%5C%5C%20w_%7B2%7D%5C%5C%20%5Cvdots%20%5C%5C%20w_%7BM%7D%20%5C%5C%20%5Cend%7Bbmatrix%7D){: .mx-auto.d-block :}
 
-So, finally we can rewrite our messy equations into a beautiful matrix form as follows:
+So, finally we can rewrite our messy equations into a beautiful matrix form as follow:
 
 ![matrixform](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20Xw%3Dy){: .mx-auto.d-block :}
 
 {: .box-note}
 **Note:** Since we have only one output variable (**Y**), so the cost function for Multiple Linear Regression will be similar to that of Simple Linear Regression! 
 
-Our **Objective** for Multiple Linear Regression will be the same as Simple Linear Regression i.e., finding the optimum values for weights and bias (clubbed together by matrix **w**) by ***minimizing*** the Cost function. So, using the same method as described for Simple Linear Regression, we will use **Least Square Method** and a bit of **Calculus** to derive the optimum values as follows: 
+Our **objective** for Multiple Linear Regression will be the same as Simple Linear Regression i.e., finding the optimum values for weights and bias (clubbed together as matrix **w**) by ***minimizing*** the Cost function. So, using the same method as described for Simple Linear Regression, we will use **Least Square Method** and a bit of **Calculus** to derive the optimum values as follows: 
 
 ![wformula](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20w%3D%5Cleft%20%28%20X%5E%7B%5Ctop%7DX%20%5Cright%20%29%5E%7B-1%7DX%5E%7B%5Ctop%7DY){: .mx-auto.d-block :}
 
-where **X<sup>T</sup>** is the transpose of Matrix **X** which is obtained by interchanging the values of rows and columns of matrix **X**. 
+where **X<sup>T</sup>** is the transpose of the matrix **X**, obtained by interchanging the values of rows and columns of **X**. 
 
 > So, now we have all the tools available to solve any question related to Linear Regression! Finally, let us get our hands dirty by writing a python code for Multiple Linear Regression model from stratch
 
 ### Python Code
 
-* **Data Preparation**
+**Data Preparation**
 
-We will use a real life data which is built for multiple linear regression and multivariate analysis, known as the Fish Market Dataset that contains information about common fish species in market sales. The dataset includes the fish species, weight, length (of 3 types), height, and width. Our main objective is to predict the dependent variable **weight** using the independent variables **length (of 3 types)**, **height**, and **width**
-Its a .csv file and you can download this dataset from [here](https://www.kaggle.com/aungpyaeap/fish-market/data)
+We will use a real life data which is built for multiple linear regression and multivariate analysis, known as the Fish Market Dataset that contains information about common fish species in market sales. The dataset includes the fish species, weight, length (of 3 types), height, and width. Our main objective is to predict the dependent variable **weight** using the independent variables **length (of 3 types)**, **height**, and **width**. The dataset is a .csv file and you can download this dataset from [here](https://www.kaggle.com/aungpyaeap/fish-market/data)
 
 Let us first import all the important libraries. 
  
@@ -285,7 +284,7 @@ In **line 2** of the above code snippet, we are randomly shuffling the dataframe
 
 ![Data2](/assets/img/out1.png)
 
-So, as you can see, the column **"species"** includes different types of fish species available based on its different attributes such as **weight**, **length**, **height** and **width**. Now let us print and check the number of samples (data points) available for our model.
+So, as you can see, the column **"species"** includes different types of fish species available based on its different attributes such as **weight**, **length**, **height** and **width**. Now let us print and check the number of samples (data points) available for our analysis.
 
 {% highlight python linenos %}
 print(df.shape)
