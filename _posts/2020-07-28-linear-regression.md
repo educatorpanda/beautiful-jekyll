@@ -261,7 +261,7 @@ where **X<sup>T</sup>** is the transpose of the matrix **X**, obtained by interc
 
 **Data Preparation**
 
-We will use a real life data which is built for multiple linear regression and multivariate analysis, known as the Fish Market Dataset that contains information about common fish species in market sales. The dataset includes the fish species, weight, length (of 3 types), height, and width. Our main objective is to predict the dependent variable **weight** using the independent variables **length (of 3 types)**, **height**, and **width**. The dataset is a .csv file and you can download this dataset from [here](https://www.kaggle.com/aungpyaeap/fish-market/data)
+We will use a real life data which is built for multiple linear regression and multivariate analysis, known as the Fish Market Dataset that contains information about common fish species in market sales. The dataset includes the fish species, weight, length (of 3 types), height, and width. Our main objective is to predict the dependent variable **weight** using the independent variables **length (of 3 types)**, **height**, and **width**. The dataset is a .csv file and you can download it from [here](https://www.kaggle.com/aungpyaeap/fish-market/data)
 
 Let us first import all the important libraries. 
  
