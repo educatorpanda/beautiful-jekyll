@@ -266,33 +266,22 @@ We will use a real life data which is built for multiple linear regression and m
 
 Let us first load this data using Pandas library and preview the first 5 lines of the loaded data
  
-
-
-Here's a code chunk:
-
-~~~
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-~~~
-
-And here is the same code with syntax highlighting:
-
-```javascript
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-```
-
-And here is the same code yet again but with line numbers:
-
 {% highlight python linenos %}
 import pandas as pd 
 data = pd.read_csv("Fish.csv") 
 data.head()
 {% endhighlight %}
+
+![Data2](/assets/img/out1.png)
+
+So, as you can see, the column **"species"** is classified into different types of fish based on its different attributes such as **weight**, **length**, **height** and **width**.
+
+
+{% highlight python linenos %}
+N = len(data)
+print(N)
+{% endhighlight %}
+
 
 ## Boxes
 You can add notification, warning and error boxes like this:
