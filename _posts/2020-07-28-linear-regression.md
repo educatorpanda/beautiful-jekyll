@@ -3,7 +3,7 @@ layout: post
 title: Everything you need to know about Linear Regression!
 subtitle: Machine Learning Episode-1.1
 gh-repo: educatorpanda/educatorpanda.github.io
-gh-badge: [star, fork, follow]
+gh-badge: [star, follow]
 comments: true
 readtime: true
 tags: [Machine Learning]
@@ -24,10 +24,9 @@ The independent variable is the variable the experimenter changes or controls an
 * [Residuals and Cost Function](#residuals-and-cost-function)
 * [Least Square Method](#least-square-method)
 * [Coefficient of Determination (R<sup>2</sup>)](#coefficient-of-determination)
-* [Multiple Linear Regression](#multiple-linear-regression))
-* Coding (in python) from scratch
-* Coding (in python) using libraries
-* Applications and Usage 
+* [Multiple Linear Regression](#multiple-linear-regression)
+* [Coding (in python) from scratch] (#python-code)
+* When can you use Linear Regression model 
 
 
 ### Introduction to Simple Linear Regression 
@@ -45,7 +44,7 @@ However, in the world of data science, we never talk about the deterministic rel
 
 Simple Linear Regression is a basic regression analysis where we have just two variables (an independent variable and a dependent variable) and based on the changes made to the independent variable (**X**), we try to predict the outcome of the dependent variable (**Y**). Let us understand this through a fictitious example.
 
-This table shows the investment of the company in its business over the years. Our task at hand is to predict the investment of the company when **Years = 3.5** using Simple Linear Regression model. So how will you do that?
+> **Example**: This table shows the investment of the company in its business over the years. Our task at hand is to predict the investment of the company when **Years = 3.5** using Simple Linear Regression model. So how will you do that?
 
 | Years | Investment (in M) |
 | :------: |:---: |
@@ -209,7 +208,63 @@ The **R<sup>2</sup>** value of 0.81 (or 81%) tells that 81% of the data points s
 
 ### Multiple Linear Regression
 
+Till now we have been dealing with only a single input variable (**X**). Now consider another example where the mileage of a car depends upon say the maximum speed and the lenght of the car. So in this case, you have 2 independent variables namely maximum speed and the length of the car. Let us denote them by **X<sup>1</sup>** and **X<sup>2</sup>** respectively. Let the dependent variable (the mileage of car) be represented as **Y**. If we assume a linear relationship between independent and dependent variable(s), then this is the case of **Multiple Linear Regression** as more than one variables are involved.
 
+Multiple Linear Regression model is just an extension of Simple Linear Regression, where our predicted output **y** can be thought of as the weighted sum of the inputs plus a bias term. So, if your actual output **Y** depends upon M different input variables (**X<sub>1</sub>**, **X<sub>2</sub>**, ..., **X<sub>M</sub>**), then the predicted output **y** is given as
+
+![\large y = w_{0}+w_{1}X_{1}+w_{2}X_{2}+\cdots +w_{M}X_{M}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20y%20%3D%20w_%7B0%7D&plus;w_%7B1%7DX_%7B1%7D&plus;w_%7B2%7DX_%7B2%7D&plus;%5Ccdots%20&plus;w_%7BM%7DX_%7BM%7D){: .mx-auto.d-block :}
+
+where **w<sub>1</sub>**, **w<sub>2</sub>**, ..., **w<sub>M</sub>** are the weights attached to the input variables and **w<sub>0</sub>** is the bias term. Now suppose we have N data points (or samples), then let us denote **X<sub>ij</sub>** as the i<sup>th</sup> input variable and j<sup>th</sup> data point and **Y<sub>j</sub>** as the j<sup>th</sup> output where (i will take any integer value from 1,2,...,M) and (j will take any integer value from 1,2,...,N). For more clarity, let us draw a table.
+
+| X<sub>1</sub> | X<sub>2</sub> | ... | X<sub>i</sub> | ... | X<sub>M</sub> | Y |
+| :------: |:---: | :------: |:---: | :------: | :------: | :------: |
+| X<sub>11</sub> |  X<sub>21</sub> |  ... |  X<sub>i1</sub> | ... |  X<sub>M1</sub> | Y<sub>1</sub> |
+| X<sub>12</sub> |  X<sub>22</sub> |  ... |  X<sub>i2</sub> | ... |  X<sub>M2</sub> | Y<sub>2</sub> |
+| ... | ... |  ... | ... | ... | ... | ... |
+|  X<sub>1j</sub> |  X<sub>2j</sub> |  ... |  X<sub>ij</sub> | ... |  X<sub>Mj</sub> | Y<sub>j</sub> |
+| ... | ... |  ... | ... | ... | ... | ... |
+|  X<sub>1N</sub> |  X<sub>2N</sub> |  ... |  X<sub>iN</sub> | ... |  X<sub>MN</sub> | Y<sub>N</sub> |
+
+Therefore we can write our predicted output **y<sub>j</sub>** (where j goes from 1,2,...,N) as
+
+![Data2](/assets/img/mlr.PNG){: .mx-auto.d-block :}
+
+If you are confused with too many equations (as we see here), don't worry as we are about to convert these messy equations into a beautiful matrix form! We can also rewrite above equations as:
+
+![mlr](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Cbegin%7Bbmatrix%7D%20y_%7B1%7D%5C%5C%20y_%7B2%7D%5C%5C%20%5Cvdots%20%5C%5C%20y_%7Bj%7D%5C%5C%20%5Cvdots%20%5C%5C%20y_%7BN%7D%20%5Cend%7Bbmatrix%7D%20%3D%20w_%7B0%7D%5Cbegin%7Bbmatrix%7D%201%5C%5C%201%5C%5C%20%5Cvdots%20%5C%5C%201%5C%5C%20%5Cvdots%20%5C%5C%201%20%5Cend%7Bbmatrix%7D%20&plus;%20w_%7B1%7D%5Cbegin%7Bbmatrix%7D%20X_%7B11%7D%5C%5C%20X_%7B12%7D%5C%5C%20%5Cvdots%20%5C%5C%20X_%7B1j%7D%5C%5C%20%5Cvdots%20%5C%5C%20X_%7B1N%7D%20%5Cend%7Bbmatrix%7D%20&plus;%20w_%7B2%7D%5Cbegin%7Bbmatrix%7D%20X_%7B21%7D%5C%5C%20X_%7B22%7D%5C%5C%20%5Cvdots%20%5C%5C%20X_%7B2j%7D%5C%5C%20%5Cvdots%20%5C%5C%20X_%7B2N%7D%20%5Cend%7Bbmatrix%7D%20&plus;%20%5Ccdots%20&plus;%20w_%7BM%7D%5Cbegin%7Bbmatrix%7D%20X_%7BM1%7D%5C%5C%20X_%7BM2%7D%5C%5C%20%5Cvdots%20%5C%5C%20X_%7BMj%7D%5C%5C%20%5Cvdots%20%5C%5C%20X_%7BMN%7D%20%5Cend%7Bbmatrix%7D
+){: .mx-auto.d-block :}
+
+which can further be rewritten as
+
+![mlr](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Cbegin%7Bbmatrix%7D%20y_%7B1%7D%5C%5C%20y_%7B2%7D%5C%5C%20%5Cvdots%20%5C%5C%20y_%7BN%7D%20%5Cend%7Bbmatrix%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%201%20%26%20X_%7B11%7D%20%26%20X_%7B21%7D%20%26%20%5Ccdots%20%26%20X_%7BM1%7D%5C%5C%201%20%26%20X_%7B12%7D%20%26%20X_%7B22%7D%20%26%20%5Ccdots%20%26%20X_%7BM2%7D%5C%5C%20%5Ccdots%20%26%20%5Ccdots%20%26%20%5Ccdots%20%26%20%5Ccdots%20%26%20%5Ccdots%5C%5C%201%20%26%20X_%7B1N%7D%20%26%20X_%7B2N%7D%20%26%20%5Ccdots%20%26%20X_%7BMN%7D%20%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7D%20w_%7B0%7D%5C%5C%20w_%7B1%7D%5C%5C%20w_%7B2%7D%5C%5C%20%5Cvdots%20%5C%5C%20w_%7BM%7D%20%5C%5C%20%5Cend%7Bbmatrix%7D
+){: .mx-auto.d-block :}
+
+Now let us define matrices **X**, **w** and **y** as follows
+
+![mlr2](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20X%3D%20%5Cbegin%7Bbmatrix%7D%201%20%26%20X_%7B11%7D%20%26%20X_%7B21%7D%20%26%20%5Ccdots%20%26%20X_%7BM1%7D%5C%5C%201%20%26%20X_%7B12%7D%20%26%20X_%7B22%7D%20%26%20%5Ccdots%20%26%20X_%7BM2%7D%5C%5C%20%5Ccdots%20%26%20%5Ccdots%20%26%20%5Ccdots%20%26%20%5Ccdots%20%26%20%5Ccdots%5C%5C%201%20%26%20X_%7B1N%7D%20%26%20X_%7B2N%7D%20%26%20%5Ccdots%20%26%20X_%7BMN%7D%20%5Cend%7Bbmatrix%7D%3B%20%5Chspace%7B0.3cm%7D%20y%3D%20%5Cbegin%7Bbmatrix%7D%20y_%7B1%7D%5C%5C%20y_%7B2%7D%5C%5C%20%5Cvdots%20%5C%5C%20y_%7BN%7D%20%5Cend%7Bbmatrix%7D%3B%20%5Chspace%7B0.3cm%7D%20w%3D%20%5Cbegin%7Bbmatrix%7D%20w_%7B0%7D%5C%5C%20w_%7B1%7D%5C%5C%20w_%7B2%7D%5C%5C%20%5Cvdots%20%5C%5C%20w_%7BM%7D%20%5C%5C%20%5Cend%7Bbmatrix%7D){: .mx-auto.d-block :}
+
+So, finally we can rewrite our messy equations into a beautiful matrix form as follows:
+
+![matrixform](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20Xw%3Dy){: .mx-auto.d-block :}
+
+{: .box-note}
+**Note:** Since we have only one output variable (**Y**), so the cost function for Multiple Linear Regression will be similar to that of Simple Linear Regression! 
+
+Our **Objective** for Multiple Linear Regression will be the same as Simple Linear Regression i.e., finding the optimum values for weights and bias (clubbed together by matrix **w**) by ***minimizing*** the Cost function. So, using the same method as described for Simple Linear Regression, we will use **Least Square Method** and a bit of **Calculus** to derive the optimum values as follows: 
+
+![wformula](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20w%3D%5Cleft%20%28%20X%5E%7B%5Ctop%7DX%20%5Cright%20%29%5E%7B-1%7DX%5E%7B%5Ctop%7DY){: .mx-auto.d-block :}
+
+where **X<sup>T</sup>** is the transpose of Matrix **X** which is obtained by interchanging the values of rows and columns of matrix **X**. 
+
+> So, now we have all the tools available to solve any question related to Linear Regression! Finally, let us get our hands dirty by writing a python code for Multiple Linear Regression model from stratch
+
+### Python Code
+
+* **Data Preparation**
+
+We will use a real life data which is built for multiple linear regression and multivariate analysis, known as the Fish Market Dataset that contains information about common fish species in market sales. The dataset includes the fish species, weight, length, height, and width. 
+
+https://www.kaggle.com/aungpyaeap/fish-market/data#
 
 Here's a code chunk:
 
