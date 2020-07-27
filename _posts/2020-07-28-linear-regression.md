@@ -25,7 +25,7 @@ The independent variable is the variable the experimenter changes or controls an
 * [Least Square Method](#least-square-method)
 * [Coefficient of Determination (R<sup>2</sup>)](#coefficient-of-determination)
 * [Multiple Linear Regression](#multiple-linear-regression)
-* [Coding (in python) from scratch] (#python-code)
+* [Coding (in python) from scratch](#python-code)
 * When can you use Linear Regression model 
 
 
@@ -262,9 +262,11 @@ where **X<sup>T</sup>** is the transpose of Matrix **X** which is obtained by in
 
 * **Data Preparation**
 
-We will use a real life data which is built for multiple linear regression and multivariate analysis, known as the Fish Market Dataset that contains information about common fish species in market sales. The dataset includes the fish species, weight, length, height, and width. 
+We will use a real life data which is built for multiple linear regression and multivariate analysis, known as the Fish Market Dataset that contains information about common fish species in market sales. The dataset includes the fish species, weight, length (of 3 types), height, and width. You can download this dataset from ![here](https://www.kaggle.com/aungpyaeap/fish-market/data#)
 
-https://www.kaggle.com/aungpyaeap/fish-market/data#
+Let us first load this data using Pandas library and preview the first 5 lines of the loaded data
+ 
+
 
 Here's a code chunk:
 
@@ -286,11 +288,10 @@ foo(3)
 
 And here is the same code yet again but with line numbers:
 
-{% highlight javascript linenos %}
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
+{% highlight python linenos %}
+import pandas as pd 
+data = pd.read_csv("Fish.csv") 
+data.head()
 {% endhighlight %}
 
 ## Boxes
