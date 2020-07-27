@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Everything you need to know about Simple Linear Regression!
+title: Everything you need to know about Linear Regression!
 subtitle: Machine Learning Episode-1.1
 gh-repo: educatorpanda/educatorpanda.github.io
 gh-badge: [star, fork, follow]
@@ -10,7 +10,7 @@ tags: [Machine Learning]
 comments: true
 ---
 
-Simple Linear Regression is a powerful statistical tool that is used to determine the relationship between two quantitative variables.
+Linear Regression is a powerful statistical tool that is used to determine the relationship between two quantitative variables.
 
 > "Somewhere between Simple Linear Regression and Deep Neural Networks we grow up to become a Data Scientist" 
 
@@ -24,7 +24,7 @@ The independent variable is the variable the experimenter changes or controls an
 * [Residuals and Cost Function](#residuals-and-cost-function)
 * [Least Square Method](#least-square-method)
 * [Coefficient of Determination (R<sup>2</sup>)](#coefficient-of-determination)
-* Extending SLR to Multiple Linear Regression
+* [Multiple Linear Regression](#multiple-linear-regression))
 * Coding (in python) from scratch
 * Coding (in python) using libraries
 * Applications and Usage 
@@ -123,13 +123,12 @@ Now that we are familiar with the term Residuals and Cost function (or total pre
 
 When we substitute the predicted output ***y<sub>i</sub> = w<sub>0</sub> + w<sub>1</sub>X<sub>i</sub>*** into the Cost function (**C**) we get:
 
-
-![Data2](/assets/img/cost2.PNG){: .mx-auto.d-block :}
+![\large C= \frac{1}{2N}\sum_{i= 1}^{N}\left ( w_{0}+w_{1}X_{i}-Y_{i}\right )^{2}](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20C%3D%20%5Cfrac%7B1%7D%7B2N%7D%5Csum_%7Bi%3D%201%7D%5E%7BN%7D%5Cleft%20%28%20w_%7B0%7D&plus;w_%7B1%7DX_%7Bi%7D-Y_%7Bi%7D%5Cright%20%29%5E%7B2%7D){: .mx-auto.d-block :}
 
 We see that our Cost function is now a function of the variable **w<sub>0</sub>** and **w<sub>1</sub>**, i.e. **C = C(w<sub>0</sub>, w<sub>1</sub>)**. So, in order to minimise this Cost function, we find the partial derivative of **C** with respect to **w<sub>0</sub>** and **w<sub>1</sub>** and equate it to zero (as shown in the figure below). 
 
 
-![\Large \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{0}} = 0 ;\hspace{0.3cm} \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{1}} = 0](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5CLarge%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B0%7D%7D%20%3D%200%20%3B%5Chspace%7B0.3cm%7D%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B1%7D%7D%20%3D%200){: .mx-auto.d-block :}
+![\large \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{0}} = 0 ;\hspace{0.3cm} \frac{\partial C\left ( w_{0},w_{1} \right )}{\partial w_{1}} = 0](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B0%7D%7D%20%3D%200%20%3B%5Chspace%7B0.3cm%7D%20%5Cfrac%7B%5Cpartial%20C%5Cleft%20%28%20w_%7B0%7D%2Cw_%7B1%7D%20%5Cright%20%29%7D%7B%5Cpartial%20w_%7B1%7D%7D%20%3D%200){: .mx-auto.d-block :}
 
 I will skip the derivation part and will directly provide the optimum value of the bias and weight **w<sub>0</sub>** and **w<sub>1</sub>** respectively (as given in the figure below)
 
@@ -202,9 +201,14 @@ If you observe the formula carefully, all we need to calculate the value of **R<
 | 5 | 4 | 6 | 16 | 36 | 24 |
 | Sum | **ΣX=10** | **ΣY=20** | **ΣX<sup>2</sup>=30** | **ΣY<sup>2</sup>=90** | **ΣXY=49** |
 
-On substituting the values of **ΣX**, **ΣY**, **ΣXY**, **ΣX<sup>2</sup>** and **N** in the given formula for **R<sub>2</sup>**, we get
+On substituting the values of **ΣX**, **ΣY**, **ΣXY**, **ΣX<sup>2</sup>** and **N** in the given formula for **R<sup>2</sup>**, we get
 
 ![\large R^{2}= \frac{\left [5 \times 49-10 \times 20\right ]^{2}}{\left [ 5 \times 30-10^{2}\right ]\left [5 \times 90-20^{2}\right ]}=0.81](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20R%5E%7B2%7D%3D%20%5Cfrac%7B%5Cleft%20%5B5%20%5Ctimes%2049-10%20%5Ctimes%2020%5Cright%20%5D%5E%7B2%7D%7D%7B%5Cleft%20%5B%205%20%5Ctimes%2030-10%5E%7B2%7D%5Cright%20%5D%5Cleft%20%5B5%20%5Ctimes%2090-20%5E%7B2%7D%5Cright%20%5D%7D%3D0.81){: .mx-auto.d-block :}
+
+The **R<sup>2</sup>** value of 0.81 (or 81%) tells that 81% of the data points should fall within the regression line ***y = 2.2 + 0.9X***. Therefore it is a good-fit! 
+
+### Multiple Linear Regression
+
 
 
 Here's a code chunk:
