@@ -26,7 +26,6 @@ The independent variable is the variable the experimenter changes or controls an
 * [Coefficient of Determination (R<sup>2</sup>)](#coefficient-of-determination)
 * [Multiple Linear Regression](#multiple-linear-regression)
 * [Coding (in python) from scratch using real life example](#python-code)
-*  
 
 
 ### Introduction to Simple Linear Regression 
