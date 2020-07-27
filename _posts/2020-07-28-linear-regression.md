@@ -360,6 +360,8 @@ This is what we get after executing the above code:
 
 ![Data2](/assets/img/out2.png){: .mx-auto.d-block :}
 
+You can find the source code and the data ('Fish.csv') from my [Github repository](https://github.com/educatorpanda/Multiple_Linear_Regression/blob/master/python_code/)
+
 There are certain assumptions which should be considered while using Linear Regression Model. You can read it from [here](https://www.statisticssolutions.com/assumptions-of-linear-regression/). With these I would like to sign off from this long post. If you have any queries or suggestions then please do let me know in the comment section below! Also if you liked this post, then please share it with as many people as possible as it will motivate the educator panda to teach all the topics pertaining to Machine Learning in a similar fashion.
 
-> Thanks for reading! 
+**Thanks for reading!** 
