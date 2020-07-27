@@ -151,7 +151,7 @@ If you observe the formula carefully, all we need to calculate the weights and b
 | 5 | 4 | 6 | 16 | 24 |
 | Sum | **ΣX=10** | **ΣY=20** | **ΣX<sup>2</sup>=30** | **ΣXY=49** |
 
-On substituting the values of **ΣX**, **ΣY**, **ΣXY** and **ΣX<sup>2</sup>** and **N** in the given formula for **w<sub>0</sub>** and **w<sub>1</sub>**, we get
+On substituting the values of **ΣX**, **ΣY**, **ΣXY**, **ΣX<sup>2</sup>** and **N** in the given formula for **w<sub>0</sub>** and **w<sub>1</sub>**, we get
 
 ![Data2](/assets/img/weightsvalues.PNG){: .mx-auto.d-block :}
 
@@ -170,7 +170,7 @@ In our example, the **Years** (X) used to create the regression equation (**y = 
 
 ### Coefficient of Determination
 
-Since our scattered data points (**Y**) does not lie completely on the regression line (**y**) (i.e., although the cost function is minimized, it is not zero), therefore a line is not a perfect explanation of the data or a perfect match to variation in **Y**. This is where the Coefficient of Determination (also known as R-squared value) comes into the picture. The Coefficient of Determination is comparing how much of true variation in **Y** is in fact explained by the best straight line provided by the regression model **y**. 
+Since our scattered data points (**Y**) does not lie completely on the regression line ***y = w<sub>0</sub> + w<sub>1</sub>X*** (i.e., although the cost function is minimized, it is not zero), therefore a line is not a perfect explanation of the data or a perfect match to variation in **Y**. This is where the Coefficient of Determination (also known as R-squared value) comes into the picture. The Coefficient of Determination is comparing how much of true variation in **Y** is in fact explained by the best straight line provided by the regression model **y**. 
 
 Before jumping to the mathematics, let us try to understand the concept more intuitively. As we have already seen before that the Cost function (or the Standard Error) measures the error that one commits with their estimation of the relation between **X** and **y** (regression line). Assume if we had no better tools for fitting lines to the data points, then what's the best thing that we could have done?  
 
@@ -179,17 +179,32 @@ We know one thing that **Mean(Y)** will stay the same, no matter what value of *
 Still, we know that a constant line is the most basic model one could come up with, as a linear function, an exponential function, a quadratic function, etc. all can adapt better to data points (as they have more parameters to play with) than a line ***y = constant***. So, the **Cost function of y = Mean(Y)** can be seen as the error that is committed by fitting data points with the worst (or the most basic) model available.
 
 For simplicity, let us denote 
-* Cost function of the regression line: ***y = w<sub>0</sub> + w<sub>1</sub>X)*** as **C<sub>L</sub>** 
+* Cost function of the regression line: ***y = w<sub>0</sub> + w<sub>1</sub>X*** as **C<sub>L</sub>** 
 * Cost function of the line ***y = Mean(Y)*** as **C<sub>M</sub>** 
 
 Hence we can conclude that **C<sub>L</sub>** will never be higher than the biggest ever possible error **C<sub>M</sub>**. If we see things this way, then the ratio **C<sub>L</sub>**/**C<sub>M</sub>** tells us what part of the maximum possible error **C<sub>M</sub>** is the error of the regression line **C<sub>L</sub>** (or the bad-fit percentage). Therefore you can find how good your model is fitting the data points by subtracting the fraction from 1, and this is known as **Coefficient of Determination!**.
 It is also denoted as **R<sup>2</sup>**.
 
-So, if **R<sup>2</sup>** value is close to zero then it indicates you should consider models other than straight lines (as **C<sub>L</sub>** will be higher), and if it is close to one, then the straight line model is a good fit to the data points (as **C<sub>L</sub>** will be close to zero). Phew!
+So, if **R<sup>2</sup>** value is close to zero then it indicates you should consider models other than straight lines (as **C<sub>L</sub>** will be higher), and if it is close to one, then the straight line model is a good fit to the data points (as **C<sub>L</sub>** will be close to zero). Phew! That was difficult to explain, but I hope it is clear.
 
-On simplifying the ratio, we get the value of **R<sup>2</sup>** as :
+On simplifying the ratio, we get the value of **R<sup>2</sup>** as:
 
 ![Data2](/assets/img/rsquare.PNG){: .mx-auto.d-block :}
+
+If you observe the formula carefully, all we need to calculate the value of **R<sup>2</sup>** are the values of **ΣX**, **ΣY**, **ΣXY**, **ΣX<sup>2</sup>**, **ΣY<sup>2</sup>** and **N** (which is 5 in our case). That's it! Let us calculate these values with the help of the following table.
+
+| i | X<sub>i</sub> | Y<sub>i</sub> | X<sub>i</sub><sup>2</sup> | Y<sub>i</sub><sup>2</sup> | X<sub>i</sub>Y<sub>i</sub> |
+| :------: |:---: | :------: |:---: | :------: | :------: |
+| 1 | 0 | 2 | 0 | 4 | 0 |
+| 2 | 1 | 3 | 1 | 9 | 3 |
+| 3 | 2 | 5 | 4 | 25 | 10 |
+| 4 | 3 | 4 | 9 | 16 | 12 |
+| 5 | 4 | 6 | 16 | 36 | 24 |
+| Sum | **ΣX=10** | **ΣY=20** | **ΣX<sup>2</sup>=30** | **ΣY<sup>2</sup>=90** | **ΣXY=49** |
+
+On substituting the values of **ΣX**, **ΣY**, **ΣXY**, **ΣX<sup>2</sup>** and **N** in the given formula for **R<sub>2</sup>**, we get
+
+![\large R^{2}= \frac{\left [5 \times 49-10 \times 20\right ]^{2}}{\left [ 5 \times 30-10^{2}\right ]\left [5 \times 90-20^{2}\right ]}=0.81](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Clarge%20R%5E%7B2%7D%3D%20%5Cfrac%7B%5Cleft%20%5B5%20%5Ctimes%2049-10%20%5Ctimes%2020%5Cright%20%5D%5E%7B2%7D%7D%7B%5Cleft%20%5B%205%20%5Ctimes%2030-10%5E%7B2%7D%5Cright%20%5D%5Cleft%20%5B5%20%5Ctimes%2090-20%5E%7B2%7D%5Cright%20%5D%7D%3D0.81){: .mx-auto.d-block :}
 
 
 Here's a code chunk:
