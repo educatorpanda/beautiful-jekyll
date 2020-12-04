@@ -33,7 +33,7 @@ The following statistics will give you an idea of growth!
 * [Research Scientist](#research-scientist)
 * [Robotics Engineer](#robotics-engineer)
 
-So, if careers in artificial intelligence appeal to you and you want a piece of the AI pie, what kind of jobs should you start looking for? What skills would you need to get hired? Let’s take a closer look.
+So, if careers in Artificial Intelligence appeal to you and you want a piece of the AI pie, what kind of jobs should you start looking for? What skills would you need to get hired? Let’s take a closer look.
 
 ### Data Scientist 
 
