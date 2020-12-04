@@ -2,8 +2,6 @@
 layout: post
 title: Job opportunities in Artificial Intelligence with Highly Paid Jobs
 subtitle: Most trending career paths in Artificial Intelligence
-cover-img: /assets/img/Ai-Expert.jpg
-thumbnail-img: /assets/img/ai_thumbnail.jpg
 readtime: true
 tags: [Artificial Intelligence, programming languages for AI, career in AI]
 comments: true
@@ -21,10 +19,6 @@ The following statistics will give you an idea of growth!
 
 * According to the job site Indeed, the demand for AI skills has more than doubled over the past three years, and the number of job postings is up by 119 percent [(Analytics Insight)](https://www.analyticsinsight.net/top-5-ai-career-paths-time/)
 
-![AI_graph](/assets/img/AI_graph.jpg){: .mx-auto.d-block :}
-
-[Source](https://finanz.dk/the-demand-for-ai-skills-in-the-labour-market/)
-
 ### Career Opportunities in Artificial Intelligence: 
 * [Data Scientist](#data-scientist)
 * [Machine Learning Engineer](#machine-learning-engineer)
@@ -38,50 +32,37 @@ So, if careers in artificial intelligence appeal to you and you want a piece of 
 ### Data Scientist 
 
 **Role**
-
 [Data scientists](https://in.springboard.com/courses/data-science-career-program-online/?gr=1) are charged with collecting, analyzing, and interpreting large, complex datasets by leveraging both machine learning and predictive analytics. They also play a vital role in developing algorithms that enable the collection and cleaning of data for analysis.
 
-![Data_scientists](/assets/img/Data_scientists.png){: .mx-auto.d-block :}
-
-[Source](https://www.datasciencecentral.com/profiles/blogs/why-is-data-scientist-the-most-promising-job-of-the-future)
-
 **Annual Median Salary**
-
 When it comes to careers in artificial intelligence, data scientists command an [annual median salary of $113K](https://www.glassdoor.co.in/Salaries/us-data-scientist-salary-SRCH_IL.0,2_IN1_KO3,17.htm?countryRedirect=true).
 
 **Data Platforms and Tools**
-
 Job-seekers are required to be equipped with one or more of the following modern tools:
-
 * Hive
 * Hadoop
 * Pig
 * Spark
 
 **Statistical Computing and Programming Languages**
-
 Data scientists should also be highly experienced in one or more of the following statistical computing languages and programming languages:
-
 * Python
 * Scala
 * SQL
 
 Beyond the ability to understand unstructured data, data scientists are also required to demonstrate strong analytical and communication skills to seamlessly communicate their findings with business leaders.
 
+
 ### Machine Learning Engineer 
 
 **Role**
-
 The role of a [Machine Learning Engineer](https://www.upgrad.com/blog/what-does-a-machine-learning-engineer-do/) is at the heart of AI projects and is suitable for those who hail from a background in applied research and data science. Machine learning engineers should also be able to apply predictive models and leverage natural language processing when working with enormous datasets.
 
 **Annual Median Salary**
-
 Machine learning engineers are highly sought after and command an [annual median salary of $114K](https://www.glassdoor.co.in/Salaries/us-machine-learning-engineer-salary-SRCH_IL.0,2_IN1_KO3,28.htm?countryRedirect=true).
 
 **Expertise**
-
 Most job postings require candidates to be experts in:
-
 * Machine Learning
 * Deep Learning
 * Neural Networks
@@ -89,9 +70,7 @@ Most job postings require candidates to be experts in:
 * Software Development Tools
 
 **Statistical Computing and Programming Languages**
-
 Applicants must demonstrate an in-depth working knowledge of modern programming languages like the following:
-
 * Python
 * Scala
 * Java
@@ -99,20 +78,17 @@ Applicants must demonstrate an in-depth working knowledge of modern programming 
 
 Programming, computing, and mathematics are essential to becoming successful as a machine learning engineer.
 
+
 ### Business Intelligence Developer 
 
 **Role**
-
 Careers in artificial intelligence also include the position of business intelligence (BI) developer. The primary objective of this role is to analyze complex data sets to identify business and market trends.
 
 **Annual Median Salary**
-
 It’s a career that’s in high demand and commands an [annual median salary of $81.5K](https://www.glassdoor.co.in/Salaries/us-business-intelligence-developer-salary-SRCH_IL.0,2_IN1_KO3,34.htm?countryRedirect=true).
 
 **Expertise**
-
 Most job postings require candidates to be experts in:
-
 * Data Warehouse Design
 * Data Mining
 * SQL Queries
@@ -122,33 +98,24 @@ Most job postings require candidates to be experts in:
 
 Those who are interested in this role need to possess strong technical and analytical skills.
 
+
 ### Big Data Engineer 
 
 **Role**
-
 The role of a [Big Data Engineer](https://www.upgrad.com/blog/how-to-become-a-big-data-engineer-ultimate-guide/) is to create an ecosystem for the business systems to interact efficiently. Their primary task is to build and effectively administer big data of an organization. They also have to carry out the function of obtaining outcomes from big data in a robust manner.
 
-![Big_Data_Engineer](/assets/img/big-data-engineer.jpg){: .mx-auto.d-block :}
-
-[Source](https://www.kdnuggets.com/2018/10/big-data-engineering-hype-train.html)
-
 **Annual Median Salary**
-
 Being a big data engineer will fetch you an [annual median salary of $103K](https://www.glassdoor.co.in/Salaries/us-big-data-engineer-architect-salary-SRCH_IL.0,2_IN1_KO3,30.htm?countryRedirect=true).
 
 **Expertise**
-
 Most job postings require candidates to be experts in:
-
 * Hadoop
 * Spark
 * Data Mining
 * Data Visualization
 
 **Statistical Computing and Programming Languages**
-
 Candidates also have to demonstrate significant programming experience in:
-
 * Python
 * Scala
 * Java
@@ -157,20 +124,17 @@ Candidates also have to demonstrate significant programming experience in:
 
 It is quite evident that one can flourish in their career in AI by being a Big Data Engineer.
 
+
 ### Research Scientist 
 
 **Role**
-
 [Research scientists](https://www.indeed.com/career/research-scientist) undertake efforts in performing extensive research dealing with applications of machine learning and machine intelligence.
 
 **Annual Median Salary**
-
 Research scientists are in high demand and command an [annual median salary of $77K](https://www.glassdoor.co.in/Salaries/us-research-scientist-salary-SRCH_IL.0,2_IN1_KO3,21.htm?countryRedirect=true).
 
 **Expertise**
-
 Most hiring companies are on the lookout for technology professionals who have an in-depth understanding of:
-
 * Benchmarking
 * Parallel Computing
 * Distributed Computing
@@ -180,32 +144,24 @@ Most hiring companies are on the lookout for technology professionals who have a
 
 A research scientist is one who has gained expertise in the field of applied mathematics, statistics, deep learning, and machine learning.
 
+
 ### Robotics Engineer
  
 **Role**
-
 Jobs will rise as robotics engineer are in incessant demands by major industries for programming their machines. The robots will help in carrying out certain tasks efficiently.
 
-![Robotics_Engineer](/assets/img/robot-ai.jpg){: .mx-auto.d-block :}
-
-[Source](https://www.infusedinnovations.com/blog/secure-intelligent-workplace/the-future-is-now-how-ai-and-robotics-can-help-fight-disease)
-
 **Annual Median Salary**
-
 Robotics Engineer salary is quite high with an [annual median salary of $364K](https://www.glassdoor.co.in/Salaries/robotics-engineer-salary-SRCH_KO0,17.htm).
 
 **Expertise**
-
 Most hiring companies are on the lookout for technology professionals who have an in-depth understanding of:
-
 * Robotics
 * Computer Science
 * Machine Learning
 
+
 ### Companies Recruiting for Artificial Intelligence Roles
-
 These are the leading companies who hired top AI talent over the past year [(Glassdoor)](https://www.glassdoor.com/research/ai-jobs/):
-
 * Amazon
 * NVIDIA
 * Microsoft
@@ -225,8 +181,8 @@ These are the leading companies who hired top AI talent over the past year [(Gla
 * Wells Fargo
 * Google
 
-### Conclusion
 
+### Conclusion
 The importance of AI is bound to climb high in the future. AI career opportunities are drastically reaching great heights. If you want to switch to AI, you should not hesitate and try your hands on it. Moreover, roles associated with AI also pay quite high. 
 
 **Thanks for reading!** 
