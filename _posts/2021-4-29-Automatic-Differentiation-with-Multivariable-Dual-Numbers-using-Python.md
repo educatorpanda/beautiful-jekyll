@@ -1,7 +1,6 @@
 ---
 layout: post
-title: Simple Kmeans clustering using Python numpy (from scratch)
-subtitle: Machine Learning Episode-1.2
+title: Automatic Differentiation with Multivariable Dual Numbers using Python
 gh-repo: educatorpanda/educatorpanda.github.io
 gh-badge: [star, follow]
 comments: true
